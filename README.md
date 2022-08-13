@@ -12,7 +12,8 @@ Note: GNU Octave is more compatible with the original.
 ### skill 1
 flagの使い方 / How to set a flag list
 
-```(matlab:skill 1a
+[matlab:skill 1a]
+```
  inData=[1, 2, 3];
  NofD=length(inData);
  flagD=true(1,NofD);
