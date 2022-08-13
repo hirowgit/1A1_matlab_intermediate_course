@@ -2,7 +2,7 @@
 %
 % /* 
 % The MIT License (MIT): 
-% Copyright (c) 2020 Hiroaki Wagatsuma and Wagatsuma Lab@Kyutech
+% Copyright (c) 2022 Hiroaki Wagatsuma and Wagatsuma Lab@Kyutech
 % 
 % Permission is hereby granted, free of charge, to any person obtaining a
 % copy of this software and associated documentation files (the
@@ -23,10 +23,10 @@
 % OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
 % USE OR OTHER DEALINGS IN THE SOFTWARE. */
 %% Specifications and requirements
-% # @Time    : 2020-4-20 
+% # @Time    : 2022-8-10 
 % # @Author  : Hiroaki Wagatsuma
-% # @Site    : https://github.com/hirowgit/1_matlab_basic_course
-% # @IDE     : MATLAB R2018a
+% # @Site    : https://github.com/hirowgit/1A1_matlab_intermediate_course
+% # @IDE     : MATLAB R2022a
 % # @File    : lec1_step1.m 
 
 %%  Main program
