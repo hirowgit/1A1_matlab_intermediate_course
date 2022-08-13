@@ -134,6 +134,17 @@ inData([1,2,5])
 inData(rdat_s)
 ```
 
+```
+ans =
+
+    10    20    50
+
+ans =
+
+   100    90    40    60    50   100    80    90    80    50
+
+```
+
  Pythonでは / In python
  
 ** [python:prog-skill 3a] ○
