@@ -16,12 +16,12 @@ flagの使い方 / How to set a flag list
  inData=[1, 2, 3];
  NofD=length(inData);
  flagD=true(1,NofD);
-```(
+```
 または / or
 ```matlab:skill 1b
  flagD=boolean(1,NofD);
  flagD(:)=true;
-```(
+```
  Pythonでは / In python
  
 ```python:skill 1
