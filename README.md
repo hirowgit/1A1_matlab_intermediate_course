@@ -12,21 +12,22 @@ Note: GNU Octave is more compatible with the original.
 ### skill 1
 flagの使い方 / How to set a flag list
 
-**[matlab:prog-skill 1a]
+** [matlab:prog-skill 1a]
 ```
  inData=[1, 2, 3];
  NofD=length(inData);
  flagD=true(1,NofD);
 ```
 または / or
-**[matlab:prog-skill 1a+]
+
+** [matlab:prog-skill 1a+]
 ```matlab:skill 1b
  flagD=boolean(1,NofD);
  flagD(:)=true;
 ```
  Pythonでは / In python
  
-**[python:prog-skill 1a] 
+** [python:prog-skill 1a] 
 ```python:skill 1
  import numpy as np
  inData=np.array([1, 2, 3])
