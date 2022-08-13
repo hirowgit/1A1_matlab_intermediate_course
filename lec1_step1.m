@@ -31,9 +31,14 @@
 
 %%  Main program
 
-a=[1,2,3,4]
+inData=[1, 2, 3];
+NofD=length(inData);
+flagD=true(1,NofD);
+flagD
 
-
+flagD2=boolean([1,NofD]);
+flagD2(:)=true;
+flagD2
 %% Supplementary information to publish
 %
 % If you want to make a pdf or html file on the code, 
