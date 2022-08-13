@@ -12,8 +12,16 @@ Note: GNU Octave is more compatible with the original.
 ### skill 1
 flagの使い方/How to set a flag list
 
-```html:skill 1
- flag=true(1,NofD+1);
+```matlab:skill 1
+ inData=[1, 2, 3];
+ NofD=length(inData);
+ flagD=true(1,NofD);
+```
+
+```python:skill 1
+ import numpy as np
+ inData=np.array([1, 2, 3])
+ flagD=np.full(len(inData),True)
 ```
   
 ### skill 1
