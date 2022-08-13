@@ -27,18 +27,15 @@
 % # @Author  : Hiroaki Wagatsuma
 % # @Site    : https://github.com/hirowgit/1A1_matlab_intermediate_course
 % # @IDE     : MATLAB R2022a
-% # @File    : lec1_step1.m 
+% # @File    : lec1_step2.m 
 
 %%  Main program
 
-inData=[1, 2, 3];
-NofD=length(inData);
-flagD=true(1,NofD);
-flagD
+NofD=10;
+rdat=rand(1,NofD);
 
-flagD2=boolean(ones(1,NofD));
-flagD2(:)=true;
-flagD2
+rdat_s=floor(rdat*NofD)+1;
+rdat_s
 
 %% Supplementary information to publish
 %
