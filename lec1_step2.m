@@ -37,6 +37,10 @@ rdat=rand(1,NofD);
 rdat_s=floor(rdat*NofD)+1;
 rdat_s
 
+inData=10*(1:NofD);
+inData([1,2,5])
+inData(rdat_s)
+
 %% Supplementary information to publish
 %
 % If you want to make a pdf or html file on the code, 
