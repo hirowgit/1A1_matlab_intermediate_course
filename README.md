@@ -12,9 +12,9 @@ Note: GNU Octave is more compatible with the original.
 ### skill 1
 flagの使い方/How to set a flag list
 
- ```html:skill 1
+```html:skill 1
  flag=true(1,NofD+1);
-```(
+```
   
 ### skill 1
 flagの使い方/How to set a flag list
