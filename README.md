@@ -52,8 +52,10 @@ flagD=np.full(len(inData),True)
 ### skill 2
 乱数列の作り方 / How to generate a random number sequence
 
+行列（配列，リスト）の番号指定に使える数列を作ります．
+つまり，行列内の特定の要素を選択することで，行列の索引として使えます．
 A number sequence available for an index of the matrix is highly important.
-It is called ``matrix Indexing.''
+It is called "matrix Indexing," which is a list for selecting a subset of elements from the matrix.
 
 ** [matlab:prog-skill 2a] ○
 ```
@@ -79,7 +81,12 @@ print(rdat_s)
 rdat_s=np.random.randint(NofD, size=NofD)
 print(rdat_s)
 ```
-
+配列の索引となるような整数列を実数から生成する場合の注意は，配列番号の範囲です．
+MATLABは，配列は1から始まるため，0が索引に含まれるとエラーが起きます．
+Pythonは，配列は0から始まり，行列サイズ(N=len(Data))は指定できないので，Nが索引に含まれるとエラーが起きます．
+実数を整数化する前提で，乱数からこれらの範囲を生成する場合，乱数を生成する関数の仕様を確認するのが重要です．一方，特定の言語やソフトウェア仕様に依存して，挙動が変わるプログラムは，将来的な問題を孕みます．プログラマの基本的姿勢は，拡張性を意識し，移植されて再利用されることを予測して，解決可能な問題は解消しておくことです．
+この場合，発生可能なリスクは，\[0, 1\], \[0, 1), (0, 1)によって，発生する整数乱数が異なることです．第一に深刻な問題は，0が乱数から発生されて，配列番号としてエラーになることです．これはPythonでは起きませんが，MATLABでは起きます．一方，Nを配列番号として指定するとPythonではエラーが起き，MATLABでは起きません．一般的な，[0, ... ,N-1]型と[1, ... ,N]型配列の移植法は，±1をすることです．このためには，索引は，[0,N-1]または[1,N]いずれかの 配列として確実に生成しておく必要があります．
+実数から生成する場合，rand()*Nとするのが一般的です．round()は四捨五入なので，数値によって挙動が変わることは問題です．したがって，切り落としのfloor()を使います．その際，結果に0またはNが含まれるかが具体的な問題となります．
 
 According to the manual, it describe:
 X = rand は、区間 (0,1) の一様分布から取り出された乱数スカラーを返します。
