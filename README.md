@@ -374,8 +374,11 @@ Extend the program for Assignment 1A-1 to a program that generates a randomly re
 
 [課題1A-3 / Assignment 1A-3]
 
-課題1A-2のプログラムにおいて，「1から5000までの数字」の出現頻度が等価であることを検証するプログラムをつくれ．
+課題1A-2のプログラムにおいて，「1から200までの数字」の出現頻度が等価であることを検証するプログラムをつくれ．
+（ヒント：ランダムに並べ替えたリストを最大値の20倍の個数ほど生成し，統計分析（平均と分散を求めて可視化）する）
 
 Add codes that verifies that the appearance frequencies of ``numbers from 1 to 5000'' are equivalent in the program of Assignment 1A-2.
+
+(Hint: Generate 20 times the maximum number of randomly sorted lists and perform statistical analysis (visualize by calculating the mean and variance))
 
 
