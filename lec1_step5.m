@@ -27,38 +27,37 @@
 % # @Author  : Hiroaki Wagatsuma
 % # @Site    : https://github.com/hirowgit/1A1_matlab_intermediate_course
 % # @IDE     : MATLAB R2022a
-% # @File    : lec1_step2.m 
+% # @File    : lec1_step3.m 
 
 %%  Main program
 
-NofD=10;
-rdat=rand(1,NofD);
+% a generator of the natural number sequence randomly aligned
 
-rdat_s=floor(rdat*NofD)+1;
-rdat_s
+tic
 
-inData=10*(1:NofD);
-inData(1)
-inData([1])
-inData([1,2,5])
-inData(rdat_s)
+setN=100;
+allData=[];
+for k=1:setN
+    NofD=10;
+    flag=true(1,NofD+1);
+    
+    DataLine=[];
+    tmp=floor(rand(1,1)*NofD)+1;
+    
+    while length(DataLine)<NofD
+        if flag(tmp)
+            DataLine(end+1)=tmp;
+            flag(tmp)=false;
+        end
+        tmp=floor(rand(1,1)*NofD)+1;
+    end
+    allData(k,:)=DataLine;
+end
 
-inData=10*(1:NofD);
+allData_s=sort(allData);
 
-inData(1)+inData(2)
-inData([1])+inData([2])
-
-inData([1,2])+inData([2,3])
-inData(1)+inData([2,3])
-inData([1])+inData([2,3])
-inData([1])*inData([2,3])
-
-inData=1:NofD;
-inData(3:end)
-inData(end)
-inData(3:end-1)
-inData(end-3:end-1)
-
+figure(1); clf
+imagesc(allData_s);
 
 %% Supplementary information to publish
 %

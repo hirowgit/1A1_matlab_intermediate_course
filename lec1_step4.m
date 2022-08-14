@@ -27,37 +27,46 @@
 % # @Author  : Hiroaki Wagatsuma
 % # @Site    : https://github.com/hirowgit/1A1_matlab_intermediate_course
 % # @IDE     : MATLAB R2022a
-% # @File    : lec1_step2.m 
+% # @File    : lec1_step3.m 
 
 %%  Main program
 
+% a generator of the natural number sequence randomly aligned
+
+tic
 NofD=10;
-rdat=rand(1,NofD);
+flag=true(1,NofD+1);
 
-rdat_s=floor(rdat*NofD)+1;
-rdat_s
+DataLine=[];
+tmp=floor(rand(1,1)*NofD)+1;
 
-inData=10*(1:NofD);
-inData(1)
-inData([1])
-inData([1,2,5])
-inData(rdat_s)
+while length(DataLine)<NofD
+    if flag(tmp)
+        DataLine(end+1)=tmp;
+        flag(tmp)=false;
+    end
+    tmp=floor(rand(1,1)*NofD)+1;
+end
 
-inData=10*(1:NofD);
+DataLineComp=unique(DataLine);
 
-inData(1)+inData(2)
-inData([1])+inData([2])
+compD1=[(1:NofD)'  DataLineComp'];
+compD2=sum(abs(diff(compD1')));
+Tdat=table((1:NofD)',DataLineComp','VariableNames',{'id','sorted_data'});
+disp(Tdat);
 
-inData([1,2])+inData([2,3])
-inData(1)+inData([2,3])
-inData([1])+inData([2,3])
-inData([1])*inData([2,3])
+if compD2>0
+    disp('It was wrong calculation... ');
+else
+    disp('The mission was sucessfully completed!');
+end
 
-inData=1:NofD;
-inData(3:end)
-inData(end)
-inData(3:end-1)
-inData(end-3:end-1)
+toc
+
+save('DataLine.mat','DataLine');
+
+% load('DataLine.mat');
+
 
 
 %% Supplementary information to publish

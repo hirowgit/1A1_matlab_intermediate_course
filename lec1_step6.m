@@ -27,38 +27,77 @@
 % # @Author  : Hiroaki Wagatsuma
 % # @Site    : https://github.com/hirowgit/1A1_matlab_intermediate_course
 % # @IDE     : MATLAB R2022a
-% # @File    : lec1_step2.m 
+% # @File    : lec1_step3.m 
 
 %%  Main program
 
-NofD=10;
-rdat=rand(1,NofD);
+% a generator of the natural number sequence randomly aligned
 
-rdat_s=floor(rdat*NofD)+1;
-rdat_s
+tic
 
-inData=10*(1:NofD);
-inData(1)
-inData([1])
-inData([1,2,5])
-inData(rdat_s)
+setN=10000;
+allData=[];
+for k=1:setN
+    NofD=5000;
+    flag=true(1,NofD+1);
+    
+    DataLine=[];
+    tmp=floor(rand(1,1)*NofD)+1;
+    
+    while sum(flag(1:NofD))>0
+        if flag(tmp)
+            DataLine(end+1)=tmp;
+            flag(tmp)=false;
+        end
+        tmp=floor(rand(1,1)*NofD)+1;
+    end
+    allData(k,:)=DataLine;
+end
 
-inData=10*(1:NofD);
+% allData=allData*10;
 
-inData(1)+inData(2)
-inData([1])+inData([2])
+allData_s=sort(allData);
 
-inData([1,2])+inData([2,3])
-inData(1)+inData([2,3])
-inData([1])+inData([2,3])
-inData([1])*inData([2,3])
+allData_d=diff(allData_s);
 
-inData=1:NofD;
-inData(3:end)
-inData(end)
-inData(3:end-1)
-inData(end-3:end-1)
+[ki kj]=find(allData_d>0);
 
+sect_id=[0 find(diff(kj)>0)' length(kj)];
+sect=[sect_id(1:end-1)+1; sect_id(2:end)];
+sect_eg=mat2cell(sect',ones(1,NofD),2);
+
+% sect_node=cellfun(@(x) kj(x(1):x(2)),sect_eg,'UniformOutput',false);
+sect_data=cellfun(@(x) ki(x(1):x(2)),sect_eg,'UniformOutput',false);
+NofE_data=cellfun(@(x) diff([0 x' setN])/setN,sect_data,'UniformOutput',false);
+NofE_data_m=cell2mat(NofE_data);
+
+figure(1); clf;
+imagesc(allData_s);
+
+figure(2); clf;
+% for k=1:NofD
+%     plot(NofE_data{k},'.-'),hold on;
+% end
+plot(NofE_data_m','.-')
+grid on;
+xp=1:NofD;
+
+set(gca,'ylim',[0 1]);
+str_lg=cellfun(@(x) ['id = ',num2str(x)],num2cell(xp),'UniformOutput',false);
+legend(str_lg);
+xticks(xp);
+
+str_xtk=cellfun(@(x) ['Pr(x=',num2str(x),')'],num2cell(xp),'UniformOutput',false);
+xticklabels(str_xtk);
+
+figure(3); clf;
+meanD = mean(NofE_data_m);
+errD = std(NofE_data_m);
+errorbar(xp,meanD,errD,'LineWidth',1.5,'MarkerSize',32);
+set(gca,'xlim',[0.5 NofD+0.5],'ylim',[0 0.5]);
+grid on;
+xticks(xp);
+xticklabels(str_xtk);
 
 %% Supplementary information to publish
 %

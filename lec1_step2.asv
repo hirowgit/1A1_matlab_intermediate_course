@@ -45,19 +45,8 @@ inData(rdat_s)
 
 inData=10*(1:NofD);
 
-inData(1)+inData(2)
-inData([1])+inData([2])
-
-inData([1,2])+inData([2,3])
-inData(1)+inData([2,3])
-inData([1])+inData([2,3])
-inData([1])*inData([2,3])
-
-inData=1:NofD;
-inData(3:end)
-inData(end)
-inData(3:end-1)
-inData(end-3:end-1)
+inData([1])
+inData([1])
 
 
 %% Supplementary information to publish
