@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mscript xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <version>9.12</version>
+   <release>2022a</release>
+   <date>2022-08-14</date>
+   <copyright>Copyright 2021 The MathWorks, Inc.</copyright>
+   <cell>
+      <count>1</count>
+      <steptitle style="document">Bowtie 2 Support Package for Bioinformatics Toolbox</steptitle>
+      <mcode>% Bowtie 2 is an ultrafast, memory-efficient short read aligner. It aligns
+% short DNA sequences (reads) to the human genome at a rate of over 25
+% million 35-bp reads per hour. Bowtie indexes the genome with a
+% Burrows-Wheeler index to keep its memory footprint small: typically about
+% 2.2 GB for the human genome (2.9 GB for paired-end).
+%
+% This support package installs the compiled binaries for Bowtie 2 so that they
+% can be used with Bioinformatics Toolbox (TM) in MATLAB.
+%
+% Bowtie 2 [1] was originally developed by Ben Langmead and Cole Trapnell at
+% Johns Hopkins University and the project is maintained at their website
+% [2].
+%
+%  [1] - Langmead B, Salzberg S. Fast gapped-read alignment with Bowtie 2.
+%        Nature Methods. 2012, 9:357-359.
+%  [2] - http://bowtie-bio.sourceforge.net/bowtie2/index.shtml
+%
+%   See also BOWTIE2, BOWTIE2BUILD, BOWTIE2INSPECT, BOWTIE2ALIGNOPTIONS,
+%   BOWTIE2BUILDOPTIONS, BOWTIE2INSPECTOPTIONS.</mcode>
+      <mcode-xmlized>
+         <mwsh:code xml:space="preserve"><mwsh:comments xml:space="preserve">% Bowtie 2 is an ultrafast, memory-efficient short read aligner. It aligns</mwsh:comments>
+<mwsh:comments xml:space="preserve">% short DNA sequences (reads) to the human genome at a rate of over 25</mwsh:comments>
+<mwsh:comments xml:space="preserve">% million 35-bp reads per hour. Bowtie indexes the genome with a</mwsh:comments>
+<mwsh:comments xml:space="preserve">% Burrows-Wheeler index to keep its memory footprint small: typically about</mwsh:comments>
+<mwsh:comments xml:space="preserve">% 2.2 GB for the human genome (2.9 GB for paired-end).</mwsh:comments>
+<mwsh:comments xml:space="preserve">%</mwsh:comments>
+<mwsh:comments xml:space="preserve">% This support package installs the compiled binaries for Bowtie 2 so that they</mwsh:comments>
+<mwsh:comments xml:space="preserve">% can be used with Bioinformatics Toolbox (TM) in MATLAB.</mwsh:comments>
+<mwsh:comments xml:space="preserve">%</mwsh:comments>
+<mwsh:comments xml:space="preserve">% Bowtie 2 [1] was originally developed by Ben Langmead and Cole Trapnell at</mwsh:comments>
+<mwsh:comments xml:space="preserve">% Johns Hopkins University and the project is maintained at their website</mwsh:comments>
+<mwsh:comments xml:space="preserve">% [2].</mwsh:comments>
+<mwsh:comments xml:space="preserve">%</mwsh:comments>
+<mwsh:comments xml:space="preserve">%  [1] - Langmead B, Salzberg S. Fast gapped-read alignment with Bowtie 2.</mwsh:comments>
+<mwsh:comments xml:space="preserve">%        Nature Methods. 2012, 9:357-359.</mwsh:comments>
+<mwsh:comments xml:space="preserve">%  [2] - http://bowtie-bio.sourceforge.net/bowtie2/index.shtml</mwsh:comments>
+<mwsh:comments xml:space="preserve">%</mwsh:comments>
+<mwsh:comments xml:space="preserve">%   See also BOWTIE2, BOWTIE2BUILD, BOWTIE2INSPECT, BOWTIE2ALIGNOPTIONS,</mwsh:comments>
+<mwsh:comments xml:space="preserve">%   BOWTIE2BUILDOPTIONS, BOWTIE2INSPECTOPTIONS.</mwsh:comments></mwsh:code>
+      </mcode-xmlized>
+      <mcode-count>1</mcode-count>
+      <cellOutputTarget>1</cellOutputTarget>
+   </cell>
+   <originalCode>%% Bowtie 2 Support Package for Bioinformatics Toolbox
+
+% Bowtie 2 is an ultrafast, memory-efficient short read aligner. It aligns
+% short DNA sequences (reads) to the human genome at a rate of over 25
+% million 35-bp reads per hour. Bowtie indexes the genome with a
+% Burrows-Wheeler index to keep its memory footprint small: typically about
+% 2.2 GB for the human genome (2.9 GB for paired-end).    
+%
+% This support package installs the compiled binaries for Bowtie 2 so that they
+% can be used with Bioinformatics Toolbox (TM) in MATLAB.
+%
+% Bowtie 2 [1] was originally developed by Ben Langmead and Cole Trapnell at
+% Johns Hopkins University and the project is maintained at their website
+% [2].
+%
+%  [1] - Langmead B, Salzberg S. Fast gapped-read alignment with Bowtie 2. 
+%        Nature Methods. 2012, 9:357-359.
+%  [2] - http://bowtie-bio.sourceforge.net/bowtie2/index.shtml
+%
+%   See also BOWTIE2, BOWTIE2BUILD, BOWTIE2INSPECT, BOWTIE2ALIGNOPTIONS,
+%   BOWTIE2BUILDOPTIONS, BOWTIE2INSPECTOPTIONS. 
+
+%   Copyright 2021 The MathWorks, Inc.
+</originalCode>
+   <m-file>README</m-file>
+   <filename>/Applications/MATLAB_R2022a.app/toolbox/bioinfo/bowtie2/README.m</filename>
+   <outputdir>/Users/hiro/Documents/github/1A1_matlab_intermediate_course/README</outputdir>
+</mscript>

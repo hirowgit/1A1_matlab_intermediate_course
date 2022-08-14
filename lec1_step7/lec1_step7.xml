@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mscript xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <version>9.12</version>
+   <release>2022a</release>
+   <date>2022-08-14</date>
+   <cell style="overview">
+      <count>1</count>
+      <steptitle style="document">MATLAB programming course for beginners, supported by Wagatsuma Lab@Kyutech</steptitle>
+      <text>
+         <p>/* The MIT License (MIT): Copyright (c) 2022 Hiroaki Wagatsuma and Wagatsuma Lab@Kyutech</p>
+         <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+         <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+         <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */</p>
+      </text>
+      <cellOutputTarget>1</cellOutputTarget>
+   </cell>
+   <cell>
+      <count>2</count>
+      <steptitle>Specifications and requirements</steptitle>
+      <text>
+         <ol>
+            <li>@Time    : 2022-8-10</li>
+            <li>@Author  : Hiroaki Wagatsuma</li>
+            <li>@Site    : <a href="https://github.com/hirowgit/1A1_matlab_intermediate_course">https://github.com/hirowgit/1A1_matlab_intermediate_course</a>
+            </li>
+            <li>@IDE     : MATLAB R2022a</li>
+            <li>@File    : lec1_step7.m</li>
+         </ol>
+      </text>
+      <cellOutputTarget>2</cellOutputTarget>
+   </cell>
+   <cell>
+      <count>3</count>
+      <steptitle>Main program</steptitle>
+      <mcode>% a generator of the natural number sequence randomly aligned
+
+tic
+NofD=100;
+% NofD=200;
+% NofD=300;
+
+setN=NofD*20;
+allData=[];
+for k=1:setN
+
+    flag=true(1,NofD+1);
+
+    DataLine=[];
+    tmp=floor(rand(1,1)*NofD)+1;
+
+    while sum(flag(1:NofD))&gt;0
+        if flag(tmp)
+            DataLine(end+1)=tmp;
+            flag(tmp)=false;
+        end
+        tmp=floor(rand(1,1)*NofD)+1;
+    end
+    allData(k,:)=DataLine;
+end
+
+% allData=allData*10;
+
+allData_s=sort(allData);
+
+allData_d=diff(allData_s);
+
+[ki kj]=find(allData_d&gt;0);
+
+sect_id=[0 find(diff(kj)&gt;0)' length(kj)];
+sect=[sect_id(1:end-1)+1; sect_id(2:end)];
+sect_eg=mat2cell(sect',ones(1,NofD),2);
+
+% sect_node=cellfun(@(x) kj(x(1):x(2)),sect_eg,'UniformOutput',false);
+sect_data=cellfun(@(x) ki(x(1):x(2)),sect_eg,'UniformOutput',false);
+NofE_data=cellfun(@(x) diff([0 x' setN])/setN,sect_data,'UniformOutput',false);
+NofE_data_m=cell2mat(NofE_data);
+
+figure(1); clf;
+imagesc(allData_s);
+
+figure(2); clf;
+% for k=1:NofD
+%     plot(NofE_data{k},'.-'),hold on;
+% end
+plot(NofE_data_m','.-')
+grid on;
+xp=1:NofD;
+
+set(gca,'ylim',[0 1],'ylim',[0 mean(mean(NofE_data_m))*3]);
+str_lg=cellfun(@(x) ['id = ',num2str(x)],num2cell(xp),'UniformOutput',false);
+legend(str_lg);
+xticks(xp);
+
+str_xtk=cellfun(@(x) ['Pr(x=',num2str(x),')'],num2cell(xp),'UniformOutput',false);
+xticklabels(str_xtk);
+
+figure(3); clf;
+meanD = mean(NofE_data_m);
+errD = std(NofE_data_m);
+errorbar(xp,meanD,errD,'LineWidth',1.5,'MarkerSize',32);
+set(gca,'xlim',[0.5 NofD+0.5],'ylim',[0 mean(meanD)*3]);
+grid on;
+xticks(xp);
+xticklabels(str_xtk);</mcode>
+      <mcode-xmlized>
+         <mwsh:code xml:space="preserve"><mwsh:comments xml:space="preserve">% a generator of the natural number sequence randomly aligned</mwsh:comments>
+
+tic
+NofD=100;
+<mwsh:comments xml:space="preserve">% NofD=200;</mwsh:comments>
+<mwsh:comments xml:space="preserve">% NofD=300;</mwsh:comments>
+
+setN=NofD*20;
+allData=[];
+<mwsh:keywords xml:space="preserve">for</mwsh:keywords> k=1:setN
+
+    flag=true(1,NofD+1);
+
+    DataLine=[];
+    tmp=floor(rand(1,1)*NofD)+1;
+
+    <mwsh:keywords xml:space="preserve">while</mwsh:keywords> sum(flag(1:NofD))&gt;0
+        <mwsh:keywords xml:space="preserve">if</mwsh:keywords> flag(tmp)
+            DataLine(end+1)=tmp;
+            flag(tmp)=false;
+        <mwsh:keywords xml:space="preserve">end</mwsh:keywords>
+        tmp=floor(rand(1,1)*NofD)+1;
+    <mwsh:keywords xml:space="preserve">end</mwsh:keywords>
+    allData(k,:)=DataLine;
+<mwsh:keywords xml:space="preserve">end</mwsh:keywords>
+
+<mwsh:comments xml:space="preserve">% allData=allData*10;</mwsh:comments>
+
+allData_s=sort(allData);
+
+allData_d=diff(allData_s);
+
+[ki kj]=find(allData_d&gt;0);
+
+sect_id=[0 find(diff(kj)&gt;0)' length(kj)];
+sect=[sect_id(1:end-1)+1; sect_id(2:end)];
+sect_eg=mat2cell(sect',ones(1,NofD),2);
+
+<mwsh:comments xml:space="preserve">% sect_node=cellfun(@(x) kj(x(1):x(2)),sect_eg,'UniformOutput',false);</mwsh:comments>
+sect_data=cellfun(@(x) ki(x(1):x(2)),sect_eg,<mwsh:strings xml:space="preserve">'UniformOutput'</mwsh:strings>,false);
+NofE_data=cellfun(@(x) diff([0 x' setN])/setN,sect_data,<mwsh:strings xml:space="preserve">'UniformOutput'</mwsh:strings>,false);
+NofE_data_m=cell2mat(NofE_data);
+
+figure(1); clf;
+imagesc(allData_s);
+
+figure(2); clf;
+<mwsh:comments xml:space="preserve">% for k=1:NofD</mwsh:comments>
+<mwsh:comments xml:space="preserve">%     plot(NofE_data{k},'.-'),hold on;</mwsh:comments>
+<mwsh:comments xml:space="preserve">% end</mwsh:comments>
+plot(NofE_data_m',<mwsh:strings xml:space="preserve">'.-'</mwsh:strings>)
+grid <mwsh:strings xml:space="preserve">on</mwsh:strings>;
+xp=1:NofD;
+
+set(gca,<mwsh:strings xml:space="preserve">'ylim'</mwsh:strings>,[0 1],<mwsh:strings xml:space="preserve">'ylim'</mwsh:strings>,[0 mean(mean(NofE_data_m))*3]);
+str_lg=cellfun(@(x) [<mwsh:strings xml:space="preserve">'id = '</mwsh:strings>,num2str(x)],num2cell(xp),<mwsh:strings xml:space="preserve">'UniformOutput'</mwsh:strings>,false);
+legend(str_lg);
+xticks(xp);
+
+str_xtk=cellfun(@(x) [<mwsh:strings xml:space="preserve">'Pr(x='</mwsh:strings>,num2str(x),<mwsh:strings xml:space="preserve">')'</mwsh:strings>],num2cell(xp),<mwsh:strings xml:space="preserve">'UniformOutput'</mwsh:strings>,false);
+xticklabels(str_xtk);
+
+figure(3); clf;
+meanD = mean(NofE_data_m);
+errD = std(NofE_data_m);
+errorbar(xp,meanD,errD,<mwsh:strings xml:space="preserve">'LineWidth'</mwsh:strings>,1.5,<mwsh:strings xml:space="preserve">'MarkerSize'</mwsh:strings>,32);
+set(gca,<mwsh:strings xml:space="preserve">'xlim'</mwsh:strings>,[0.5 NofD+0.5],<mwsh:strings xml:space="preserve">'ylim'</mwsh:strings>,[0 mean(meanD)*3]);
+grid <mwsh:strings xml:space="preserve">on</mwsh:strings>;
+xticks(xp);
+xticklabels(str_xtk);</mwsh:code>
+      </mcode-xmlized>
+      <mcode-count>1</mcode-count>
+      <cellOutputTarget>3</cellOutputTarget>
+      <img src="lec1_step7_01.png"/>
+      <img src="lec1_step7_02.png"/>
+      <img src="lec1_step7_03.png"/>
+   </cell>
+   <cell>
+      <count>4</count>
+      <steptitle>Supplementary information to publish</steptitle>
+      <text>
+         <p>If you want to make a pdf or html file on the code, you can use the code "x_publish_each_codes.m" in the same folder. Please change the file name as " this_file_tag='lec*_step*' " (* will be replaced to the number of the target file).</p>
+         <p>The code "x_publish_all_codes.m" works for such a publication applying to all codes in the same folder (Note: "x_publish_all_codes_sub.m" should be located in the same folder).</p>
+      </text>
+      <cellOutputTarget>4</cellOutputTarget>
+   </cell>
+   <cell>
+      <count>5</count>
+      <cellOutputTarget>5</cellOutputTarget>
+   </cell>
+   <originalCode>%% MATLAB programming course for beginners, supported by Wagatsuma Lab@Kyutech 
+%
+% /* 
+% The MIT License (MIT): 
+% Copyright (c) 2022 Hiroaki Wagatsuma and Wagatsuma Lab@Kyutech
+% 
+% Permission is hereby granted, free of charge, to any person obtaining a
+% copy of this software and associated documentation files (the
+% "Software"), to deal in the Software without restriction, including
+% without limitation the rights to use, copy, modify, merge, publish,
+% distribute, sublicense, and/or sell copies of the Software, and to permit
+% persons to whom the Software is furnished to do so, subject to the
+% following conditions:
+% 
+% The above copyright notice and this permission notice shall be included
+% in all copies or substantial portions of the Software.
+% 
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+% OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+% MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+% NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+% DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+% OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+% USE OR OTHER DEALINGS IN THE SOFTWARE. */
+%% Specifications and requirements
+% # @Time    : 2022-8-10 
+% # @Author  : Hiroaki Wagatsuma
+% # @Site    : https://github.com/hirowgit/1A1_matlab_intermediate_course
+% # @IDE     : MATLAB R2022a
+% # @File    : lec1_step7.m 
+
+%%  Main program
+
+% a generator of the natural number sequence randomly aligned
+
+tic
+NofD=100;
+% NofD=200;
+% NofD=300;
+
+setN=NofD*20;
+allData=[];
+for k=1:setN
+    
+    flag=true(1,NofD+1);
+    
+    DataLine=[];
+    tmp=floor(rand(1,1)*NofD)+1;
+    
+    while sum(flag(1:NofD))&gt;0
+        if flag(tmp)
+            DataLine(end+1)=tmp;
+            flag(tmp)=false;
+        end
+        tmp=floor(rand(1,1)*NofD)+1;
+    end
+    allData(k,:)=DataLine;
+end
+
+% allData=allData*10;
+
+allData_s=sort(allData);
+
+allData_d=diff(allData_s);
+
+[ki kj]=find(allData_d&gt;0);
+
+sect_id=[0 find(diff(kj)&gt;0)' length(kj)];
+sect=[sect_id(1:end-1)+1; sect_id(2:end)];
+sect_eg=mat2cell(sect',ones(1,NofD),2);
+
+% sect_node=cellfun(@(x) kj(x(1):x(2)),sect_eg,'UniformOutput',false);
+sect_data=cellfun(@(x) ki(x(1):x(2)),sect_eg,'UniformOutput',false);
+NofE_data=cellfun(@(x) diff([0 x' setN])/setN,sect_data,'UniformOutput',false);
+NofE_data_m=cell2mat(NofE_data);
+
+figure(1); clf;
+imagesc(allData_s);
+
+figure(2); clf;
+% for k=1:NofD
+%     plot(NofE_data{k},'.-'),hold on;
+% end
+plot(NofE_data_m','.-')
+grid on;
+xp=1:NofD;
+
+set(gca,'ylim',[0 1],'ylim',[0 mean(mean(NofE_data_m))*3]);
+str_lg=cellfun(@(x) ['id = ',num2str(x)],num2cell(xp),'UniformOutput',false);
+legend(str_lg);
+xticks(xp);
+
+str_xtk=cellfun(@(x) ['Pr(x=',num2str(x),')'],num2cell(xp),'UniformOutput',false);
+xticklabels(str_xtk);
+
+figure(3); clf;
+meanD = mean(NofE_data_m);
+errD = std(NofE_data_m);
+errorbar(xp,meanD,errD,'LineWidth',1.5,'MarkerSize',32);
+set(gca,'xlim',[0.5 NofD+0.5],'ylim',[0 mean(meanD)*3]);
+grid on;
+xticks(xp);
+xticklabels(str_xtk);
+
+%% Supplementary information to publish
+%
+% If you want to make a pdf or html file on the code, 
+% you can use the code "x_publish_each_codes.m" in the same folder. 
+% Please change the file name as " this_file_tag='lec*_step*' "  
+% (* will be replaced to the number of the target file). 
+%
+% The code "x_publish_all_codes.m" works for such a publication applying to all
+% codes in the same folder (Note: "x_publish_all_codes_sub.m" should be located in the same folder).
+%%
+</originalCode>
+   <m-file>lec1_step7</m-file>
+   <filename>/Users/hiro/Documents/github/1A1_matlab_intermediate_course/lec1_step7.m</filename>
+   <outputdir>/Users/hiro/Documents/github/1A1_matlab_intermediate_course/lec1_step7</outputdir>
+</mscript>

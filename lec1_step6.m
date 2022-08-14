@@ -27,7 +27,7 @@
 % # @Author  : Hiroaki Wagatsuma
 % # @Site    : https://github.com/hirowgit/1A1_matlab_intermediate_course
 % # @IDE     : MATLAB R2022a
-% # @File    : lec1_step3.m 
+% # @File    : lec1_step6.m 
 
 %%  Main program
 
@@ -35,10 +35,10 @@
 
 tic
 
-setN=10000;
+setN=2000;
 allData=[];
 for k=1:setN
-    NofD=5000;
+    NofD=100;
     flag=true(1,NofD+1);
     
     DataLine=[];
@@ -82,7 +82,7 @@ plot(NofE_data_m','.-')
 grid on;
 xp=1:NofD;
 
-set(gca,'ylim',[0 1]);
+set(gca,'ylim',[0 1],'ylim',[0 mean(mean(NofE_data_m))*3]);
 str_lg=cellfun(@(x) ['id = ',num2str(x)],num2cell(xp),'UniformOutput',false);
 legend(str_lg);
 xticks(xp);
@@ -94,7 +94,7 @@ figure(3); clf;
 meanD = mean(NofE_data_m);
 errD = std(NofE_data_m);
 errorbar(xp,meanD,errD,'LineWidth',1.5,'MarkerSize',32);
-set(gca,'xlim',[0.5 NofD+0.5],'ylim',[0 0.5]);
+set(gca,'xlim',[0.5 NofD+0.5],'ylim',[0 mean(meanD)*3]);
 grid on;
 xticks(xp);
 xticklabels(str_xtk);

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mscript xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <version>9.12</version>
+   <release>2022a</release>
+   <date>2022-08-14</date>
+   <cell style="overview">
+      <count>1</count>
+      <steptitle style="document">MATLAB programming course for beginners, supported by Wagatsuma Lab@Kyutech</steptitle>
+      <text>
+         <p>/* The MIT License (MIT): Copyright (c) 2014 Hiroaki Wagatsuma and Wagatsuma Lab@Kyutech</p>
+         <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+         <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+         <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */</p>
+      </text>
+      <cellOutputTarget>1</cellOutputTarget>
+   </cell>
+   <cell>
+      <count>2</count>
+      <steptitle>Specifications and requirements</steptitle>
+      <text>
+         <ol>
+            <li>@Time    : 2014-08-09</li>
+            <li>@Author  : Hiroaki Wagatsuma</li>
+            <li>@Site    : <a href="https://github.com/hirowgit/1B1_matlab_signal_analysis_course">https://github.com/hirowgit/1B1_matlab_signal_analysis_course</a>
+            </li>
+            <li>@IDE     : MATLAB R2018a</li>
+            <li>@File    : save_fig.m</li>
+         </ol>
+      </text>
+      <cellOutputTarget>2</cellOutputTarget>
+   </cell>
+   <cell>
+      <count>3</count>
+      <steptitle>Sub program</steptitle>
+      <mcode>folder_name=strsplit(datafname,'.');
+if ~exist(folder_name{1},'dir'); mkdir(folder_name{1}); end
+curdir=pwd;
+cd(folder_name{1});
+
+hfig=findobj('Type','figure');
+for i=1:length(hfig)
+    sname=get(hfig(i),'name'); s2name = regexp(sname,'[A-Za-z0-9()]+','match');
+    if isempty(s2name) fnlname=['fig_',num2str(hfig(i))]; else fnlname='fig'; end
+    fnlname=[fnlname,'_',folder_name{1}];
+    for j=1:length(s2name)
+        fnlname=[fnlname,'_',s2name{j}];
+    end
+    figure(hfig(i));
+    saveas(gcf,fnlname,'fig');
+    saveas(gcf,fnlname,'pdf');
+%     saveas(gcf,fnlname,'ai');
+    saveas(gcf,fnlname,'eps');
+    saveas(gcf,fnlname,'jpg');
+    saveas(gcf,fnlname,'png');
+end
+cd(curdir);</mcode>
+      <mcode-xmlized>
+         <mwsh:code xml:space="preserve">folder_name=strsplit(datafname,<mwsh:strings xml:space="preserve">'.'</mwsh:strings>);
+<mwsh:keywords xml:space="preserve">if</mwsh:keywords> ~exist(folder_name{1},<mwsh:strings xml:space="preserve">'dir'</mwsh:strings>); mkdir(folder_name{1}); <mwsh:keywords xml:space="preserve">end</mwsh:keywords>
+curdir=pwd;
+cd(folder_name{1});
+
+hfig=findobj(<mwsh:strings xml:space="preserve">'Type'</mwsh:strings>,<mwsh:strings xml:space="preserve">'figure'</mwsh:strings>);
+<mwsh:keywords xml:space="preserve">for</mwsh:keywords> i=1:length(hfig)
+    sname=get(hfig(i),<mwsh:strings xml:space="preserve">'name'</mwsh:strings>); s2name = regexp(sname,<mwsh:strings xml:space="preserve">'[A-Za-z0-9()]+'</mwsh:strings>,<mwsh:strings xml:space="preserve">'match'</mwsh:strings>);
+    <mwsh:keywords xml:space="preserve">if</mwsh:keywords> isempty(s2name) fnlname=[<mwsh:strings xml:space="preserve">'fig_'</mwsh:strings>,num2str(hfig(i))]; <mwsh:keywords xml:space="preserve">else</mwsh:keywords> fnlname=<mwsh:strings xml:space="preserve">'fig'</mwsh:strings>; <mwsh:keywords xml:space="preserve">end</mwsh:keywords>
+    fnlname=[fnlname,<mwsh:strings xml:space="preserve">'_'</mwsh:strings>,folder_name{1}];
+    <mwsh:keywords xml:space="preserve">for</mwsh:keywords> j=1:length(s2name)
+        fnlname=[fnlname,<mwsh:strings xml:space="preserve">'_'</mwsh:strings>,s2name{j}];
+    <mwsh:keywords xml:space="preserve">end</mwsh:keywords>
+    figure(hfig(i));
+    saveas(gcf,fnlname,<mwsh:strings xml:space="preserve">'fig'</mwsh:strings>);
+    saveas(gcf,fnlname,<mwsh:strings xml:space="preserve">'pdf'</mwsh:strings>);
+<mwsh:comments xml:space="preserve">%     saveas(gcf,fnlname,'ai');</mwsh:comments>
+    saveas(gcf,fnlname,<mwsh:strings xml:space="preserve">'eps'</mwsh:strings>);
+    saveas(gcf,fnlname,<mwsh:strings xml:space="preserve">'jpg'</mwsh:strings>);
+    saveas(gcf,fnlname,<mwsh:strings xml:space="preserve">'png'</mwsh:strings>);
+<mwsh:keywords xml:space="preserve">end</mwsh:keywords>
+cd(curdir);</mwsh:code>
+      </mcode-xmlized>
+      <mcode-count>1</mcode-count>
+      <cellOutputTarget>3</cellOutputTarget>
+      <mcodeoutput class="codeoutput error">Unrecognized function or variable 'datafname'.
+
+Error in save_fig (line 34)
+folder_name=strsplit(datafname,'.');
+</mcodeoutput>
+   </cell>
+   <originalCode>%% MATLAB programming course for beginners, supported by Wagatsuma Lab@Kyutech 
+%
+% /* 
+% The MIT License (MIT): 
+% Copyright (c) 2014 Hiroaki Wagatsuma and Wagatsuma Lab@Kyutech
+% 
+% Permission is hereby granted, free of charge, to any person obtaining a
+% copy of this software and associated documentation files (the
+% "Software"), to deal in the Software without restriction, including
+% without limitation the rights to use, copy, modify, merge, publish,
+% distribute, sublicense, and/or sell copies of the Software, and to permit
+% persons to whom the Software is furnished to do so, subject to the
+% following conditions:
+% 
+% The above copyright notice and this permission notice shall be included
+% in all copies or substantial portions of the Software.
+% 
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+% OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+% MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+% NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+% DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+% OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+% USE OR OTHER DEALINGS IN THE SOFTWARE. */
+%% Specifications and requirements
+% # @Time    : 2014-08-09 
+% # @Author  : Hiroaki Wagatsuma
+% # @Site    : https://github.com/hirowgit/1B1_matlab_signal_analysis_course
+% # @IDE     : MATLAB R2018a
+% # @File    : save_fig.m
+
+%%  Sub program
+
+folder_name=strsplit(datafname,'.');
+if ~exist(folder_name{1},'dir'); mkdir(folder_name{1}); end
+curdir=pwd;
+cd(folder_name{1});
+
+hfig=findobj('Type','figure');
+for i=1:length(hfig)
+    sname=get(hfig(i),'name'); s2name = regexp(sname,'[A-Za-z0-9()]+','match'); 
+    if isempty(s2name) fnlname=['fig_',num2str(hfig(i))]; else fnlname='fig'; end 
+    fnlname=[fnlname,'_',folder_name{1}];
+    for j=1:length(s2name)
+        fnlname=[fnlname,'_',s2name{j}];
+    end
+    figure(hfig(i));
+    saveas(gcf,fnlname,'fig');
+    saveas(gcf,fnlname,'pdf');
+%     saveas(gcf,fnlname,'ai');
+    saveas(gcf,fnlname,'eps');
+    saveas(gcf,fnlname,'jpg');
+    saveas(gcf,fnlname,'png');
+end
+cd(curdir);</originalCode>
+   <m-file>save_fig</m-file>
+   <filename>/Users/hiro/Documents/github/1A1_matlab_intermediate_course/save_fig.m</filename>
+   <outputdir>/Users/hiro/Documents/github/1A1_matlab_intermediate_course/save_fig</outputdir>
+</mscript>
