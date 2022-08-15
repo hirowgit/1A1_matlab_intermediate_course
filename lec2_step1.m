@@ -27,37 +27,21 @@
 % # @Author  : Hiroaki Wagatsuma
 % # @Site    : https://github.com/hirowgit/1A1_matlab_intermediate_course
 % # @IDE     : MATLAB R2022a
-% # @File    : lec1_step7.m 
+% # @File    : lec2_step1.m 
 
 %%  Main program
 
 % a generator of the natural number sequence randomly aligned
 
 tic
-NofD=10;
-% NofD=200;
-% NofD=300;
+fdname={'allData200.mat','allData500.mat','allData1000.mat','allData10000.mat'};
+load(fdname{1});
 
-setN=NofD*1000;
-allData=[];
-for k=1:setN
-    
-    flag=true(1,NofD+1);
-    
-    DataLine=[];
-    tmp=floor(rand(1,1)*NofD)+1;
-    
-    while sum(flag(1:NofD))>0
-        if flag(tmp)
-            DataLine(end+1)=tmp;
-            flag(tmp)=false;
-        end
-        tmp=floor(rand(1,1)*NofD)+1;
-    end
-    allData(k,:)=DataLine;
-end
+allData=allData(1:20,:);
 
-% allData=allData*10;
+NofD=size(allData,2);
+setN=size(allData,1);
+
 
 allData_s=sort(allData);
 

@@ -382,3 +382,82 @@ Add codes that verifies that the appearance frequencies of ``numbers from 1 to 5
 (Hint: Generate 20 times the maximum number of randomly sorted lists and perform statistical analysis (visualize by calculating the mean and variance))
 
 
+## Topic: @@@ (@@) 
+
+> skill 1
+find
+
+> skill 2
+cellfun
+
+> skill 3
+正規表現
+
+### skill @
+++++
+
+** [matlab:prog-skill *a] ○
+```
+  
+```
+または / or
+
+** [matlab:prog-skill *a+] △
+``` 
+  
+```
+
+ Pythonでは / In python
+ 
+** [python:prog-skill 3a] ○
+``` 
+
+```
+
+
+
+## Target problem: @@@ (@@) 
+
+[課題@@-1 / Assignment @@-1]
+
+...を生成するプログラムをつくれ．
+ 
+
+Make a program that ...
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+## Topic: @@@ (@@) 
+### skill @
+++++
+
+** [matlab:prog-skill *a] ○
+```
+  
+```
+または / or
+
+** [matlab:prog-skill *a+] △
+``` 
+  
+```
+
+ Pythonでは / In python
+ 
+** [python:prog-skill 3a] ○
+``` 
+
+```
+
+
+
+## Target problem: @@@ (@@) 
+
+[課題@@-1 / Assignment @@-1]
+
+...を生成するプログラムをつくれ．
+ 
+
+Make a program that ...
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
