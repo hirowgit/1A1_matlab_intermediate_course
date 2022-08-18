@@ -1,6 +1,10 @@
 # 1A1_matlab_intermediate_course
 
- 
+# Basics of a New Trend of Structured Programming with High Productivity and Efficiency
+In 1970, usage of "goto" sentences was highly concerned.
+https://monoist.itmedia.co.jp/mn/articles/1009/17/news118.html
+In 2020, matrix operation is highly recommended instead of usage of "for" sentences.
+
 # MATLAB Install
 See here:
 https://github.com/hirowgit/1A0_matlab_basic_course
@@ -416,14 +420,59 @@ cellfun
 
 
 
-## Target problem: @@@ (@@) 
+## Target problem: Numerical Operation in List (1B) 
 
-[課題@@-1 / Assignment @@-1]
+[課題1B-1 / Assignment 1B-1]
 
-...を生成するプログラムをつくれ．
+1から10までの数字で構成されたランダム数列が，行として与えられ，その200行で構成される行列を以下のcsvファイルから読み込み，各列（index番号）で1から10までの数字が等確率で出現しているかを評価するプログラムをつくれ
+ allData200.csv
+
+A number sequence consisting of numbers from 1 to 10 randomly aligned is given as a row in the matrix consisting of 200 rows.
+Read it from the following csv file, and make a program to evaluate the occurance proberbility of each column (index number position) expecting to have numbers from 1 to 10, as a question whether it shows the same occurance proberbility or not.
+ allData200.csv
+
+[課題1B-2 / Assignment 1B-2]
+
+[In MATLAB]
+find関数, sort関数, slicing索引抽出機能を用いて，課題1B-1のプログラムをつくれ．
+
+但し，for文を一切使わないこと．
+
+[In Python]
+np.where関数, np.sort関数, slicing索引抽出機能を用いて，課題1B-1のプログラムをつくれ．
+
+但し，リスト内包表記の中のfor構文以外は，for文を使わないこと．
+
+[In MATLAB]
+Make a program for Assignment 1B-1 using the "find" function, "sort" function, and slicing index extraction method.
+
+However, do not use the "for" statement.
+
+[In Python]
+Make a program for Assignment 1B-1 using the "np.where" function, "np.sort" function, and slicing index extraction method.
+
+However, do not use the "for" statement except for the "for" statement inside the list comprehension.
+
+(Note: set the statement in the first place "import numpy as np")
+
+[課題1B-3 / Assignment 1B-3]
+
+プログラミング初級者が作成する以下のようなコードで，課題1B-1を解決するコードを作成し，課題1B-2で作成したコードと比較して，計算量を分析せよ．
+
+Make a code that solves Assignment 1B-1 with the following code structure typically created by novice programmers, and compare it with the code created in Assignment 1B-2 to analyze the amount of computation.
+
+```
+for i=1:N
+ for j=1:N
+  if ** then
+    a=**
+    
+   end
+ end
+end
+```
+
  
-
-Make a program that ...
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ## Topic: @@@ (@@) 
