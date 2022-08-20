@@ -27,7 +27,7 @@
 % # @Author  : Hiroaki Wagatsuma
 % # @Site    : https://github.com/hirowgit/1A1_matlab_intermediate_course
 % # @IDE     : MATLAB R2022a
-% # @File    : lec1_step1.m 
+% # @File    : lec0_step4.m 
 
 %%  Main program
 
