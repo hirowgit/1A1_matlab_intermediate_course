@@ -40,7 +40,7 @@ flag=true(1,NofD+1);
 DataLine=[];
 tmp=floor(rand(1,1)*NofD)+1;
 
-while length(DataLine)<NofD
+while sum(flag(1:10))>0
     if flag(tmp)
         DataLine(end+1)=tmp;
         flag(tmp)=false;
