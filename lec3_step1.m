@@ -27,47 +27,22 @@
 % # @Author  : Hiroaki Wagatsuma
 % # @Site    : https://github.com/hirowgit/1A1_matlab_intermediate_course
 % # @IDE     : MATLAB R2022a
-% # @File    : lec1_step4.m 
+% # @File    : lec3_step1.m 
 
 %%  Main program
-
-% a generator of the natural number sequence randomly aligned
-
-tic
 NofD=10;
-flag=true(1,NofD+1);
+rD1=randi(NofD,[NofD 1]);
+rD2=randi([2 NofD],[NofD 1]);
+rD=rD2+rD1;
+cell_rD=num2cell(rD);
+cell_rD1=num2cell(rD1);
+mixAry=cellfun(@(x,y) (x:y),cell_rD1,cell_rD,'UniformOutput',false);
+edgAry=cellfun(@(x) x([1 end]),mixAry,'UniformOutput',false);
+edgM=cell2mat(edgAry);
 
-DataLine=[];
-tmp=floor(rand(1,1)*NofD)+1;
-
-while length(DataLine)<NofD
-    if flag(tmp)
-        DataLine(end+1)=tmp;
-        flag(tmp)=false;
-    end
-    tmp=floor(rand(1,1)*NofD)+1;
-end
-
-% DataLineComp=unique(DataLine);
-% 
-% compD1=[(1:NofD)'  DataLineComp'];
-% compD2=sum(abs(diff(compD1')));
-% Tdat=table((1:NofD)',DataLineComp','VariableNames',{'id','sorted_data'});
-% disp(Tdat);
-% 
-% if compD2>0
-%     disp('It was wrong calculation... ');
-% else
-%     disp('The mission was sucessfully completed!');
-% end
-
-toc
-
-save('DataLine.mat','DataLine');
-
-% load('DataLine.mat');
-
-
+disp(mixAry);
+disp(edgAry);
+disp(edgM);
 
 %% Supplementary information to publish
 %

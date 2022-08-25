@@ -27,47 +27,12 @@
 % # @Author  : Hiroaki Wagatsuma
 % # @Site    : https://github.com/hirowgit/1A1_matlab_intermediate_course
 % # @IDE     : MATLAB R2022a
-% # @File    : lec1_step4.m 
+% # @File    : lec3_step1.m 
 
 %%  Main program
 
-% a generator of the natural number sequence randomly aligned
-
-tic
-NofD=10;
-flag=true(1,NofD+1);
-
-DataLine=[];
-tmp=floor(rand(1,1)*NofD)+1;
-
-while length(DataLine)<NofD
-    if flag(tmp)
-        DataLine(end+1)=tmp;
-        flag(tmp)=false;
-    end
-    tmp=floor(rand(1,1)*NofD)+1;
-end
-
-% DataLineComp=unique(DataLine);
-% 
-% compD1=[(1:NofD)'  DataLineComp'];
-% compD2=sum(abs(diff(compD1')));
-% Tdat=table((1:NofD)',DataLineComp','VariableNames',{'id','sorted_data'});
-% disp(Tdat);
-% 
-% if compD2>0
-%     disp('It was wrong calculation... ');
-% else
-%     disp('The mission was sucessfully completed!');
-% end
-
-toc
-
-save('DataLine.mat','DataLine');
-
-% load('DataLine.mat');
-
-
+r_arryrandi(2,5);
+{[]}
 
 %% Supplementary information to publish
 %
