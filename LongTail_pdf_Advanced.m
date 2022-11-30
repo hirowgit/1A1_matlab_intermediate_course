@@ -1,10 +1,8 @@
-this_file_tag='lec4_step2_genMat4Assort_Platinum';
-
 %% MATLAB programming course for beginners, supported by Wagatsuma Lab@Kyutech 
 %
 % /* 
 % The MIT License (MIT): 
-% Copyright (c) 2020 Hiroaki Wagatsuma and Wagatsuma Lab@Kyutech
+% Copyright (c) 2022 Hiroaki Wagatsuma and Wagatsuma Lab@Kyutech
 % 
 % Permission is hereby granted, free of charge, to any person obtaining a
 % copy of this software and associated documentation files (the
@@ -25,33 +23,37 @@ this_file_tag='lec4_step2_genMat4Assort_Platinum';
 % OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
 % USE OR OTHER DEALINGS IN THE SOFTWARE. */
 %% Specifications and requirements
-% # @Time    : 2020-4-20 
+% # @Time    : 2022-11-30 
 % # @Author  : Hiroaki Wagatsuma
-% # @Site    : https://github.com/hirowgit/1_matlab_basic_course
-% # @IDE     : MATLAB R2018a
-% # @File    : x_publish_each_codes.m
+% # @Site    : https://github.com/hirowgit/1A1_matlab_intermediate_course
+% # @IDE     : MATLAB R2022a
+% # @File    : LongTail_pdf_Advanced.m
 
-%%  Main program
-%%  Publish individual codes and thier results
-suffST={'m','html','pdf','latex','xml','doc','ppt'}; typeST={'MATLAB','HTML','PDF','LaTeX','XML','Microsoft Word','Microsoft PowerPoint'}; 
+% 
+figure(8); clf;
+                           
+rng(3,'twister');
+x = trnd(5,2000,1);
+q = quantile(x,.95);
+y = x(x>q) - q;
+n = numel(y);
 
-try    
-    f_name(1:length(suffST))={this_file_tag};
-    f_name2=cellfun(@(s1,s2) [s1,'.',s2],f_name,suffST,'UniformOutput',false);
-    currT=clock; date_stamp=sprintf("%d/%d/%d",currT(1:3)); 
-catch
-    disp('Please do not delete the first line with "this_file_tag" ')
-end
+paramEsts = gpfit(y);
+kHat      = paramEsts(1)   % Tail index parameter
+sigmaHat  = paramEsts(2)   % Scale parameter
 
-if ~exist(this_file_tag,'dir'); mkdir(this_file_tag); end
-for i=2:length(suffST)   % (For doc and ppt error may happen in publish in some platform like mac) 
-    try
-        publish(f_name2{1},'format',suffST{i},'outputDir',this_file_tag);
-        fprintf('successfully published as %s files ! See in folder "%s".\r\n',typeST{i},this_file_tag);
-    catch
-        fprintf('sfailed to publish into %s files ...\r\n',typeST{i});
-    end
+bins = 0:.25:7;
+h = bar(bins,histc(y,bins)/(length(y)*.25),'histc');
+h.FaceColor = [.9 .9 .9];
+ygrid = linspace(0,1.1*max(y),100);
+line(ygrid,gppdf(ygrid,kHat,sigmaHat));
+xlim([0,6]);
+xlabel('Exceedance');
+ylabel('Probability Density');
 
-end
-web([this_file_tag,'/',f_name2{2}]);
-%%
+
+
+% NofStID=244;
+% NofPrdID=1670;
+% 
+% y*NofPrdID

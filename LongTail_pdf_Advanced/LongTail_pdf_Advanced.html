@@ -1,0 +1,170 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>MATLAB programming course for beginners, supported by Wagatsuma Lab@Kyutech</title><meta name="generator" content="MATLAB 9.12"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2022-11-30"><meta name="DC.source" content="LongTail_pdf_Advanced.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>MATLAB programming course for beginners, supported by Wagatsuma Lab@Kyutech</h1><!--introduction--><p>/* The MIT License (MIT): Copyright (c) 2022 Hiroaki Wagatsuma and Wagatsuma Lab@Kyutech</p><p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p><p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p><p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Specifications and requirements</a></li></ul></div><h2 id="1">Specifications and requirements</h2><div><ol><li>@Time    : 2022-11-30</li><li>@Author  : Hiroaki Wagatsuma</li><li>@Site    : <a href="https://github.com/hirowgit/1A1_matlab_intermediate_course">https://github.com/hirowgit/1A1_matlab_intermediate_course</a></li><li>@IDE     : MATLAB R2022a</li><li>@File    : LongTail_pdf_Advanced.m</li></ol></div><pre class="codeinput"><span class="comment">%</span>
+figure(8); clf;
+
+rng(3,<span class="string">'twister'</span>);
+x = trnd(5,2000,1);
+q = quantile(x,.95);
+y = x(x&gt;q) - q;
+n = numel(y);
+
+paramEsts = gpfit(y);
+kHat      = paramEsts(1)   <span class="comment">% Tail index parameter</span>
+sigmaHat  = paramEsts(2)   <span class="comment">% Scale parameter</span>
+
+bins = 0:.25:7;
+h = bar(bins,histc(y,bins)/(length(y)*.25),<span class="string">'histc'</span>);
+h.FaceColor = [.9 .9 .9];
+ygrid = linspace(0,1.1*max(y),100);
+line(ygrid,gppdf(ygrid,kHat,sigmaHat));
+xlim([0,6]);
+xlabel(<span class="string">'Exceedance'</span>);
+ylabel(<span class="string">'Probability Density'</span>);
+
+
+
+<span class="comment">% NofStID=244;</span>
+<span class="comment">% NofPrdID=1670;</span>
+<span class="comment">%</span>
+<span class="comment">% y*NofPrdID</span>
+</pre><pre class="codeoutput">
+kHat =
+
+    0.0987
+
+
+sigmaHat =
+
+    0.7156
+
+</pre><img vspace="5" hspace="5" src="LongTail_pdf_Advanced_01.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2022a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% MATLAB programming course for beginners, supported by Wagatsuma Lab@Kyutech 
+%
+% /* 
+% The MIT License (MIT): 
+% Copyright (c) 2022 Hiroaki Wagatsuma and Wagatsuma Lab@Kyutech
+% 
+% Permission is hereby granted, free of charge, to any person obtaining a
+% copy of this software and associated documentation files (the
+% "Software"), to deal in the Software without restriction, including
+% without limitation the rights to use, copy, modify, merge, publish,
+% distribute, sublicense, and/or sell copies of the Software, and to permit
+% persons to whom the Software is furnished to do so, subject to the
+% following conditions:
+% 
+% The above copyright notice and this permission notice shall be included
+% in all copies or substantial portions of the Software.
+% 
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+% OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+% MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+% NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+% DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+% OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+% USE OR OTHER DEALINGS IN THE SOFTWARE. */
+%% Specifications and requirements
+% # @Time    : 2022-11-30 
+% # @Author  : Hiroaki Wagatsuma
+% # @Site    : https://github.com/hirowgit/1A1_matlab_intermediate_course
+% # @IDE     : MATLAB R2022a
+% # @File    : LongTail_pdf_Advanced.m
+
+% 
+figure(8); clf;
+                           
+rng(3,'twister');
+x = trnd(5,2000,1);
+q = quantile(x,.95);
+y = x(x>q) - q;
+n = numel(y);
+
+paramEsts = gpfit(y);
+kHat      = paramEsts(1)   % Tail index parameter
+sigmaHat  = paramEsts(2)   % Scale parameter
+
+bins = 0:.25:7;
+h = bar(bins,histc(y,bins)/(length(y)*.25),'histc');
+h.FaceColor = [.9 .9 .9];
+ygrid = linspace(0,1.1*max(y),100);
+line(ygrid,gppdf(ygrid,kHat,sigmaHat));
+xlim([0,6]);
+xlabel('Exceedance');
+ylabel('Probability Density');
+
+
+
+% NofStID=244;
+% NofPrdID=1670;
+% 
+% y*NofPrdID
+##### SOURCE END #####
+--></body></html>

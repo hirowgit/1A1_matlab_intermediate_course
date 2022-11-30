@@ -1,0 +1,838 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>MATLAB programming course for beginners, supported by Wagatsuma Lab@Kyutech</title><meta name="generator" content="MATLAB 9.12"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2022-11-30"><meta name="DC.source" content="lec4_step2_genMat4Assort_Platinum.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>MATLAB programming course for beginners, supported by Wagatsuma Lab@Kyutech</h1><!--introduction--><p>/* The MIT License (MIT): Copyright (c) 2022 Hiroaki Wagatsuma and Wagatsuma Lab@Kyutech</p><p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p><p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p><p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Specifications and requirements</a></li></ul></div><h2 id="1">Specifications and requirements</h2><div><ol><li>@Time    : 2022-11-30</li><li>@Author  : Hiroaki Wagatsuma</li><li>@Site    : <a href="https://github.com/hirowgit/1A1_matlab_intermediate_course">https://github.com/hirowgit/1A1_matlab_intermediate_course</a></li><li>@IDE     : MATLAB R2022a</li><li>@File    : lec4_step2_genMat4Assort_Platinum.m</li></ol></div><pre class="codeinput"><span class="comment">% List of towns in South Korea</span>
+<span class="comment">% clear all</span>
+
+NofStID=244;
+NofPrdID=1670;
+
+NofData=100;
+
+NofLines=8;
+
+
+<span class="comment">% NofStID=5;</span>
+<span class="comment">% NofPrdID=10;</span>
+<span class="comment">% NofData=50;</span>
+
+NofStID=10;
+NofPrdID=20;
+NofData=50;
+
+NofPrdOrd=100;
+
+stLabelN=1:NofStID;
+stLabelN0=[0 stLabelN];
+prdLabelN=1:NofPrdID;
+prdLabelN0=[0 prdLabelN];
+
+
+
+
+<span class="comment">% NofData=3;</span>
+
+LongTail_pdf_Advanced;
+<span class="comment">% r2=floor(NofPrdID*y./max(y))+1;</span>
+r2=floor((NofPrdID-1)*y./max(y))+1;
+
+LongTail_pdf_Advanced;
+<span class="comment">% r2=floor(NofPrdID*y./max(y))+1;</span>
+n2=floor((NofPrdOrd-1)*y./max(y))+1;
+
+stIDNameM=floor(NofStID*rand(NofData,1))+1;
+<span class="comment">% prdIDNameM=floor(NofPrdID*rand(NofData,1))+1;</span>
+IDr2=floor(size(r2,1)*rand(NofData,1))+1;
+prdIDNameM=r2(IDr2);
+
+<span class="comment">% NofPrdD=floor(NofPrdOrd*rand(NofData,1))+1;</span>
+IDn2=floor(size(n2,1)*rand(NofData,1))+1;
+NofPrdD=n2(IDn2);
+
+
+serialD=[stIDNameM prdIDNameM NofPrdD];
+
+<span class="comment">% dT=[];</span>
+dT=zeros(NofPrdID,NofStID);
+
+tic
+<span class="keyword">for</span> i=1:size(serialD,1)
+<span class="comment">%    dT(serialD(i,2),serialD(i,1))=serialD(i,3);   % (productNum,storeNum)</span>
+   i
+   dT(serialD(i,2),serialD(i,1))=dT(serialD(i,2),serialD(i,1))+serialD(i,3);   <span class="comment">% (productNum,storeNum)</span>
+<span class="keyword">end</span>
+
+clc
+<span class="comment">% % disp([stLabelN0; [prdLabelN' dT]]);</span>
+
+<span class="comment">% dTs=[dT; sum(dT)];</span>
+
+NpieceInBox=20;
+NboxInLine=10;
+
+
+alpha=0.5;
+<span class="comment">% alpha=0.8;</span>
+
+beta=1-alpha;
+simIndexFlg=2;
+
+<span class="keyword">if</span> simIndexFlg==2
+<span class="comment">% ==== SP2 =====</span>
+    sumDT=sum(dT);
+    markedSt=find(sumDT==max(sum(dT)));
+    [ki kj]=find(dT&gt;0);
+    NofItem=sum(boolean(dT));
+    NiNorm=NofItem./max(NofItem);
+    alignedSimilarity=dT(:,markedSt)'*dT;
+    aSNorm=alignedSimilarity./max(alignedSimilarity);
+
+    dTsRev=[stLabelN; dT; alpha*NofItem+beta*aSNorm]';
+<span class="comment">% ==== SP2 =====</span>
+
+<span class="keyword">elseif</span> simIndexFlg==1
+<span class="comment">% ==== SP1 =====</span>
+    sumDT=sum(dT);
+    markedSt=find(sumDT==max(sum(dT)));
+    alignedSimilarity=dT(:,markedSt)'*dT;
+    dTsRev=[stLabelN; dT; alignedSimilarity]';
+<span class="comment">% ==== SP1 =====</span>
+
+<span class="keyword">else</span>
+    dTsRev=[stLabelN; dT; sum(dT)]';
+<span class="keyword">end</span>
+
+dTsRevS=sortrows(dTsRev,NofPrdID+2,<span class="string">'descend'</span>);
+<span class="comment">% disp(dTsRevS);</span>
+
+sortedSt=dTsRevS(:,1);
+sortedSumByStore=dTsRevS(:,end);     <span class="comment">% by Store</span>
+sDataBody=dTsRevS(:,2:end-1);
+<span class="comment">% disp(sDataBody');</span>
+<span class="comment">% % disp([[0 sortedSt']; [prdLabelN' sDataBody']]);</span>
+
+
+dTsS=sortrows([prdLabelN; sDataBody; sum(sDataBody)]',NofStID+2,<span class="string">'descend'</span>);
+sortedPrd=dTsS(:,1);  <span class="comment">%i</span>
+sortedSumRevByProduct=dTsS(:,end);     <span class="comment">% by Product</span>
+s2DataBody=dTsS(:,2:end-1);
+
+<span class="comment">% disp(s2DataBody);</span>
+dispData=[[0 sortedSt']; [sortedPrd s2DataBody]];
+
+[ki kj]=find(s2DataBody&gt;0);
+
+ki2=unique(ki);
+kj2=unique(kj);
+nPrd=sortedPrd(ki2);
+nSt=sortedSt(kj2);
+
+AlgData=s2DataBody(ki2,kj2);
+<span class="comment">% disp([[0 nSt']; [nPrd s2DataBody(ki,kj)]]);</span>
+disp([[0 nSt']; [nPrd AlgData]]);
+toc
+
+figure(9);clf
+bar3(AlgData)
+xticks(1:size(nSt,1));
+xticklabels(nSt)
+xlabel(<span class="string">'store ID'</span>);
+
+yticks(1:size(nPrd,1));
+yticklabels(nPrd)
+ylabel(<span class="string">'product ID'</span>);
+
+<span class="comment">% zlabel('N of Items');</span>
+zlabel(<span class="string">'# products'</span>);
+
+set(gca,<span class="string">'zlim'</span>,[1 max(max(dT))]);
+view(38.5,36.5);
+
+ASnum=sum(ceil(AlgData./NpieceInBox));
+
+<span class="comment">% fillLine=boolean(zeros(1,NofLines));</span>
+<span class="comment">% LineT=zeros(1,NofLines);</span>
+
+prFill=ASnum/NboxInLine;
+
+fillLine=boolean(ones(1,size(prFill,2)));
+LineT={};
+k=1;
+<span class="keyword">for</span> i=1:size(prFill,2)
+    <span class="keyword">if</span> fillLine(i)
+        remF=1-prFill(i);
+        IDrem=find(prFill(i+1:end)&lt;=remF &amp; fillLine(i+1:end));
+        tmp=i; j=1; fID=i;
+        <span class="keyword">while</span> ~isempty(IDrem)
+            fID=IDrem(1)+fID;
+            tmp(end+1)=fID;
+            remF=remF-prFill(IDrem(j)+i);
+            IDrem=find(prFill(fID+1:end)&lt;=remF &amp; fillLine(fID+1:end));
+        <span class="keyword">end</span>
+        LineT{k}=tmp;
+        fillLine(tmp)=false;
+        k=k+1;
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+
+lenLineT=cell2mat(cellfun(@(x) length(x),LineT,<span class="string">'UniformOutput'</span>,false));
+stackBarD=zeros(size(LineT,2),max(lenLineT));
+
+<span class="keyword">for</span> i=1:length(LineT)
+    tmp=LineT{i};
+    stackBarD(i,1:length(tmp))=prFill(tmp);
+<span class="keyword">end</span>
+
+figure(1);clf;
+subplot(2,1,1);
+barOri = bar(prFill,<span class="string">'FaceColor'</span>,<span class="string">'flat'</span>,<span class="string">'LineWidth'</span>,2);
+barOri.CData = [1 1 1];
+xlabel(<span class="string">'store ID'</span>);
+ylabel(<span class="string">'Action Steps (AS)'</span>);
+set(gca,<span class="string">'FontSize'</span>,12);
+grid <span class="string">on</span>;
+
+<span class="keyword">for</span> i = 1:size(prFill,2)  <span class="comment">% Line ID (horizontal)</span>
+    ypos=prFill(i)./2;
+    text(i-0.03-0.1,0.035+ypos,num2str(i));
+    text(i-0.15-0.1,0.035+ypos-0.07,[num2str(prFill(i)*100),<span class="string">'%'</span>]);
+
+
+<span class="keyword">end</span>
+
+subplot(2,1,2);
+barS = bar(stackBarD,<span class="string">'stacked'</span>,<span class="string">'FaceColor'</span>,<span class="string">'flat'</span>,<span class="string">'LineWidth'</span>,2),hold <span class="string">on</span>;
+bsLabel=num2cell(1:size(LineT,2));
+bsLabel2=cellfun(@(x) [<span class="string">'L'</span>,num2str(x)],bsLabel,<span class="string">'UniformOutput'</span>,false);
+xticklabels(bsLabel2);
+<span class="keyword">for</span> i = 1:size(stackBarD,2)
+    barS(i).CData = [1 1 1];
+<span class="keyword">end</span>
+xlabel(<span class="string">'Line ID'</span>);
+ylabel(<span class="string">'Action Steps (AS)'</span>);
+set(gca,<span class="string">'FontSize'</span>,12);
+
+<span class="keyword">for</span> i = 1:size(stackBarD,1)  <span class="comment">% Line ID (horizontal)</span>
+    baseY=0;
+    <span class="keyword">for</span> j = 1:size(stackBarD,2) <span class="comment">% stacked  (vertical)</span>
+        <span class="keyword">if</span>  stackBarD(i,j)&gt;0
+            key=LineT{i}(j); tmp=prFill(key);
+            ypos=tmp/2;
+            text(i-0.03,0.035+baseY+ypos,num2str(key));
+            text(i-0.15,0.035+baseY+ypos-0.07,[num2str(tmp*100),<span class="string">'%'</span>]);
+            baseY=baseY+tmp;
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">
+kHat =
+
+    0.0987
+
+
+sigmaHat =
+
+    0.7156
+
+
+kHat =
+
+    0.0987
+
+
+sigmaHat =
+
+    0.7156
+
+
+i =
+
+     1
+
+
+i =
+
+     2
+
+
+i =
+
+     3
+
+
+i =
+
+     4
+
+
+i =
+
+     5
+
+
+i =
+
+     6
+
+
+i =
+
+     7
+
+
+i =
+
+     8
+
+
+i =
+
+     9
+
+
+i =
+
+    10
+
+
+i =
+
+    11
+
+
+i =
+
+    12
+
+
+i =
+
+    13
+
+
+i =
+
+    14
+
+
+i =
+
+    15
+
+
+i =
+
+    16
+
+
+i =
+
+    17
+
+
+i =
+
+    18
+
+
+i =
+
+    19
+
+
+i =
+
+    20
+
+
+i =
+
+    21
+
+
+i =
+
+    22
+
+
+i =
+
+    23
+
+
+i =
+
+    24
+
+
+i =
+
+    25
+
+
+i =
+
+    26
+
+
+i =
+
+    27
+
+
+i =
+
+    28
+
+
+i =
+
+    29
+
+
+i =
+
+    30
+
+
+i =
+
+    31
+
+
+i =
+
+    32
+
+
+i =
+
+    33
+
+
+i =
+
+    34
+
+
+i =
+
+    35
+
+
+i =
+
+    36
+
+
+i =
+
+    37
+
+
+i =
+
+    38
+
+
+i =
+
+    39
+
+
+i =
+
+    40
+
+
+i =
+
+    41
+
+
+i =
+
+    42
+
+
+i =
+
+    43
+
+
+i =
+
+    44
+
+
+i =
+
+    45
+
+
+i =
+
+    46
+
+
+i =
+
+    47
+
+
+i =
+
+    48
+
+
+i =
+
+    49
+
+
+i =
+
+    50
+
+     0     1     7     4    10     5     8     3     6     9     2
+     1    35    34    12     0     4    98    27     0     0     0
+     3    14    26     0    15     1     1     0     2    69     8
+     2    21    11     5    17     0    51    19    10     0     0
+     6    59     0     0    10    25     0     0     0     0     0
+     7     0     0    21     0     8     0     0     9     0    52
+     5     0     8     0     0     0     0     0     0    69     0
+     4     8     0     6    29     0     0     0     0     0     0
+    10     0     0     0     0     0     0     9     0     0     0
+
+Elapsed time is 0.023859 seconds.
+
+barS = 
+
+  1&times;2 Bar array:
+
+    Bar    Bar
+
+</pre><img vspace="5" hspace="5" src="lec4_step2_genMat4Assort_Platinum_01.png" alt=""> <img vspace="5" hspace="5" src="lec4_step2_genMat4Assort_Platinum_02.png" alt=""> <img vspace="5" hspace="5" src="lec4_step2_genMat4Assort_Platinum_03.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2022a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% MATLAB programming course for beginners, supported by Wagatsuma Lab@Kyutech 
+%
+% /* 
+% The MIT License (MIT): 
+% Copyright (c) 2022 Hiroaki Wagatsuma and Wagatsuma Lab@Kyutech
+% 
+% Permission is hereby granted, free of charge, to any person obtaining a
+% copy of this software and associated documentation files (the
+% "Software"), to deal in the Software without restriction, including
+% without limitation the rights to use, copy, modify, merge, publish,
+% distribute, sublicense, and/or sell copies of the Software, and to permit
+% persons to whom the Software is furnished to do so, subject to the
+% following conditions:
+% 
+% The above copyright notice and this permission notice shall be included
+% in all copies or substantial portions of the Software.
+% 
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+% OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+% MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+% NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+% DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+% OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+% USE OR OTHER DEALINGS IN THE SOFTWARE. */
+%% Specifications and requirements
+% # @Time    : 2022-11-30 
+% # @Author  : Hiroaki Wagatsuma
+% # @Site    : https://github.com/hirowgit/1A1_matlab_intermediate_course
+% # @IDE     : MATLAB R2022a
+% # @File    : lec4_step2_genMat4Assort_Platinum.m
+
+% List of towns in South Korea
+% clear all 
+
+NofStID=244;
+NofPrdID=1670;
+
+NofData=100;
+
+NofLines=8;
+
+
+% NofStID=5;
+% NofPrdID=10;
+% NofData=50;
+
+NofStID=10;
+NofPrdID=20;
+NofData=50;
+
+NofPrdOrd=100;
+
+stLabelN=1:NofStID;
+stLabelN0=[0 stLabelN];
+prdLabelN=1:NofPrdID;
+prdLabelN0=[0 prdLabelN];
+
+
+
+
+% NofData=3;
+
+LongTail_pdf_Advanced;
+% r2=floor(NofPrdID*y./max(y))+1;
+r2=floor((NofPrdID-1)*y./max(y))+1;
+
+LongTail_pdf_Advanced;
+% r2=floor(NofPrdID*y./max(y))+1;
+n2=floor((NofPrdOrd-1)*y./max(y))+1;
+
+stIDNameM=floor(NofStID*rand(NofData,1))+1;
+% prdIDNameM=floor(NofPrdID*rand(NofData,1))+1;
+IDr2=floor(size(r2,1)*rand(NofData,1))+1;
+prdIDNameM=r2(IDr2);
+
+% NofPrdD=floor(NofPrdOrd*rand(NofData,1))+1;
+IDn2=floor(size(n2,1)*rand(NofData,1))+1;
+NofPrdD=n2(IDn2);
+
+
+serialD=[stIDNameM prdIDNameM NofPrdD];
+
+% dT=[];
+dT=zeros(NofPrdID,NofStID);
+
+tic
+for i=1:size(serialD,1)
+%    dT(serialD(i,2),serialD(i,1))=serialD(i,3);   % (productNum,storeNum)
+   i
+   dT(serialD(i,2),serialD(i,1))=dT(serialD(i,2),serialD(i,1))+serialD(i,3);   % (productNum,storeNum)
+end
+
+clc
+% % disp([stLabelN0; [prdLabelN' dT]]);
+
+% dTs=[dT; sum(dT)];
+
+NpieceInBox=20;
+NboxInLine=10;
+
+
+alpha=0.5;  
+% alpha=0.8;  
+
+beta=1-alpha;
+simIndexFlg=2;
+
+if simIndexFlg==2
+% ==== SP2 =====
+    sumDT=sum(dT);
+    markedSt=find(sumDT==max(sum(dT)));
+    [ki kj]=find(dT>0);
+    NofItem=sum(boolean(dT));
+    NiNorm=NofItem./max(NofItem);
+    alignedSimilarity=dT(:,markedSt)'*dT;
+    aSNorm=alignedSimilarity./max(alignedSimilarity);
+    
+    dTsRev=[stLabelN; dT; alpha*NofItem+beta*aSNorm]';
+% ==== SP2 =====
+    
+elseif simIndexFlg==1
+% ==== SP1 =====
+    sumDT=sum(dT);
+    markedSt=find(sumDT==max(sum(dT)));
+    alignedSimilarity=dT(:,markedSt)'*dT;
+    dTsRev=[stLabelN; dT; alignedSimilarity]';
+% ==== SP1 =====
+
+else
+    dTsRev=[stLabelN; dT; sum(dT)]';
+end
+
+dTsRevS=sortrows(dTsRev,NofPrdID+2,'descend');
+% disp(dTsRevS);
+
+sortedSt=dTsRevS(:,1);
+sortedSumByStore=dTsRevS(:,end);     % by Store 
+sDataBody=dTsRevS(:,2:end-1);
+% disp(sDataBody');
+% % disp([[0 sortedSt']; [prdLabelN' sDataBody']]);
+
+
+dTsS=sortrows([prdLabelN; sDataBody; sum(sDataBody)]',NofStID+2,'descend');
+sortedPrd=dTsS(:,1);  %i
+sortedSumRevByProduct=dTsS(:,end);     % by Product
+s2DataBody=dTsS(:,2:end-1);   
+
+% disp(s2DataBody);
+dispData=[[0 sortedSt']; [sortedPrd s2DataBody]];
+
+[ki kj]=find(s2DataBody>0);
+
+ki2=unique(ki);
+kj2=unique(kj);
+nPrd=sortedPrd(ki2);
+nSt=sortedSt(kj2);
+
+AlgData=s2DataBody(ki2,kj2);
+% disp([[0 nSt']; [nPrd s2DataBody(ki,kj)]]);
+disp([[0 nSt']; [nPrd AlgData]]);
+toc
+
+figure(9);clf
+bar3(AlgData)
+xticks(1:size(nSt,1));
+xticklabels(nSt)
+xlabel('store ID');
+
+yticks(1:size(nPrd,1));
+yticklabels(nPrd)
+ylabel('product ID');
+
+% zlabel('N of Items');
+zlabel('# products');
+
+set(gca,'zlim',[1 max(max(dT))]);
+view(38.5,36.5);
+
+ASnum=sum(ceil(AlgData./NpieceInBox));
+
+% fillLine=boolean(zeros(1,NofLines));
+% LineT=zeros(1,NofLines);
+
+prFill=ASnum/NboxInLine;
+
+fillLine=boolean(ones(1,size(prFill,2)));
+LineT={};
+k=1;
+for i=1:size(prFill,2)
+    if fillLine(i)
+        remF=1-prFill(i);
+        IDrem=find(prFill(i+1:end)<=remF & fillLine(i+1:end));
+        tmp=i; j=1; fID=i;
+        while ~isempty(IDrem)
+            fID=IDrem(1)+fID;
+            tmp(end+1)=fID;
+            remF=remF-prFill(IDrem(j)+i);
+            IDrem=find(prFill(fID+1:end)<=remF & fillLine(fID+1:end));      
+        end
+        LineT{k}=tmp;
+        fillLine(tmp)=false;
+        k=k+1;
+    end
+end
+
+lenLineT=cell2mat(cellfun(@(x) length(x),LineT,'UniformOutput',false));
+stackBarD=zeros(size(LineT,2),max(lenLineT));
+
+for i=1:length(LineT)
+    tmp=LineT{i};
+    stackBarD(i,1:length(tmp))=prFill(tmp);
+end
+
+figure(1);clf;
+subplot(2,1,1);
+barOri = bar(prFill,'FaceColor','flat','LineWidth',2);
+barOri.CData = [1 1 1];
+xlabel('store ID');
+ylabel('Action Steps (AS)');
+set(gca,'FontSize',12);
+grid on;
+
+for i = 1:size(prFill,2)  % Line ID (horizontal)
+    ypos=prFill(i)./2;
+    text(i-0.03-0.1,0.035+ypos,num2str(i));
+    text(i-0.15-0.1,0.035+ypos-0.07,[num2str(prFill(i)*100),'%']);
+            
+   
+end
+
+subplot(2,1,2);
+barS = bar(stackBarD,'stacked','FaceColor','flat','LineWidth',2),hold on;
+bsLabel=num2cell(1:size(LineT,2));
+bsLabel2=cellfun(@(x) ['L',num2str(x)],bsLabel,'UniformOutput',false);
+xticklabels(bsLabel2);
+for i = 1:size(stackBarD,2)
+    barS(i).CData = [1 1 1];
+end
+xlabel('Line ID');
+ylabel('Action Steps (AS)');
+set(gca,'FontSize',12);
+
+for i = 1:size(stackBarD,1)  % Line ID (horizontal)
+    baseY=0;
+    for j = 1:size(stackBarD,2) % stacked  (vertical)
+        if  stackBarD(i,j)>0
+            key=LineT{i}(j); tmp=prFill(key);
+            ypos=tmp/2;
+            text(i-0.03,0.035+baseY+ypos,num2str(key));
+            text(i-0.15,0.035+baseY+ypos-0.07,[num2str(tmp*100),'%']);
+            baseY=baseY+tmp;
+        end
+    end
+end
+##### SOURCE END #####
+--></body></html>

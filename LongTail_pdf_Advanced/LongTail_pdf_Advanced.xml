@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mscript xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <version>9.12</version>
+   <release>2022a</release>
+   <date>2022-11-30</date>
+   <cell style="overview">
+      <count>1</count>
+      <steptitle style="document">MATLAB programming course for beginners, supported by Wagatsuma Lab@Kyutech</steptitle>
+      <text>
+         <p>/* The MIT License (MIT): Copyright (c) 2022 Hiroaki Wagatsuma and Wagatsuma Lab@Kyutech</p>
+         <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+         <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+         <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */</p>
+      </text>
+      <cellOutputTarget>1</cellOutputTarget>
+   </cell>
+   <cell>
+      <count>2</count>
+      <steptitle>Specifications and requirements</steptitle>
+      <text>
+         <ol>
+            <li>@Time    : 2022-11-30</li>
+            <li>@Author  : Hiroaki Wagatsuma</li>
+            <li>@Site    : <a href="https://github.com/hirowgit/1A1_matlab_intermediate_course">https://github.com/hirowgit/1A1_matlab_intermediate_course</a>
+            </li>
+            <li>@IDE     : MATLAB R2022a</li>
+            <li>@File    : LongTail_pdf_Advanced.m</li>
+         </ol>
+      </text>
+      <mcode>%
+figure(8); clf;
+
+rng(3,'twister');
+x = trnd(5,2000,1);
+q = quantile(x,.95);
+y = x(x&gt;q) - q;
+n = numel(y);
+
+paramEsts = gpfit(y);
+kHat      = paramEsts(1)   % Tail index parameter
+sigmaHat  = paramEsts(2)   % Scale parameter
+
+bins = 0:.25:7;
+h = bar(bins,histc(y,bins)/(length(y)*.25),'histc');
+h.FaceColor = [.9 .9 .9];
+ygrid = linspace(0,1.1*max(y),100);
+line(ygrid,gppdf(ygrid,kHat,sigmaHat));
+xlim([0,6]);
+xlabel('Exceedance');
+ylabel('Probability Density');
+
+
+
+% NofStID=244;
+% NofPrdID=1670;
+%
+% y*NofPrdID</mcode>
+      <mcode-xmlized>
+         <mwsh:code xml:space="preserve"><mwsh:comments xml:space="preserve">%</mwsh:comments>
+figure(8); clf;
+
+rng(3,<mwsh:strings xml:space="preserve">'twister'</mwsh:strings>);
+x = trnd(5,2000,1);
+q = quantile(x,.95);
+y = x(x&gt;q) - q;
+n = numel(y);
+
+paramEsts = gpfit(y);
+kHat      = paramEsts(1)   <mwsh:comments xml:space="preserve">% Tail index parameter</mwsh:comments>
+sigmaHat  = paramEsts(2)   <mwsh:comments xml:space="preserve">% Scale parameter</mwsh:comments>
+
+bins = 0:.25:7;
+h = bar(bins,histc(y,bins)/(length(y)*.25),<mwsh:strings xml:space="preserve">'histc'</mwsh:strings>);
+h.FaceColor = [.9 .9 .9];
+ygrid = linspace(0,1.1*max(y),100);
+line(ygrid,gppdf(ygrid,kHat,sigmaHat));
+xlim([0,6]);
+xlabel(<mwsh:strings xml:space="preserve">'Exceedance'</mwsh:strings>);
+ylabel(<mwsh:strings xml:space="preserve">'Probability Density'</mwsh:strings>);
+
+
+
+<mwsh:comments xml:space="preserve">% NofStID=244;</mwsh:comments>
+<mwsh:comments xml:space="preserve">% NofPrdID=1670;</mwsh:comments>
+<mwsh:comments xml:space="preserve">%</mwsh:comments>
+<mwsh:comments xml:space="preserve">% y*NofPrdID</mwsh:comments></mwsh:code>
+      </mcode-xmlized>
+      <mcode-count>1</mcode-count>
+      <cellOutputTarget>2</cellOutputTarget>
+      <mcodeoutput class="codeoutput">
+kHat =
+
+    0.0987
+
+
+sigmaHat =
+
+    0.7156
+
+</mcodeoutput>
+      <img src="LongTail_pdf_Advanced_01.png"/>
+   </cell>
+   <originalCode>%% MATLAB programming course for beginners, supported by Wagatsuma Lab@Kyutech 
+%
+% /* 
+% The MIT License (MIT): 
+% Copyright (c) 2022 Hiroaki Wagatsuma and Wagatsuma Lab@Kyutech
+% 
+% Permission is hereby granted, free of charge, to any person obtaining a
+% copy of this software and associated documentation files (the
+% "Software"), to deal in the Software without restriction, including
+% without limitation the rights to use, copy, modify, merge, publish,
+% distribute, sublicense, and/or sell copies of the Software, and to permit
+% persons to whom the Software is furnished to do so, subject to the
+% following conditions:
+% 
+% The above copyright notice and this permission notice shall be included
+% in all copies or substantial portions of the Software.
+% 
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+% OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+% MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+% NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+% DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+% OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+% USE OR OTHER DEALINGS IN THE SOFTWARE. */
+%% Specifications and requirements
+% # @Time    : 2022-11-30 
+% # @Author  : Hiroaki Wagatsuma
+% # @Site    : https://github.com/hirowgit/1A1_matlab_intermediate_course
+% # @IDE     : MATLAB R2022a
+% # @File    : LongTail_pdf_Advanced.m
+
+% 
+figure(8); clf;
+                           
+rng(3,'twister');
+x = trnd(5,2000,1);
+q = quantile(x,.95);
+y = x(x&gt;q) - q;
+n = numel(y);
+
+paramEsts = gpfit(y);
+kHat      = paramEsts(1)   % Tail index parameter
+sigmaHat  = paramEsts(2)   % Scale parameter
+
+bins = 0:.25:7;
+h = bar(bins,histc(y,bins)/(length(y)*.25),'histc');
+h.FaceColor = [.9 .9 .9];
+ygrid = linspace(0,1.1*max(y),100);
+line(ygrid,gppdf(ygrid,kHat,sigmaHat));
+xlim([0,6]);
+xlabel('Exceedance');
+ylabel('Probability Density');
+
+
+
+% NofStID=244;
+% NofPrdID=1670;
+% 
+% y*NofPrdID</originalCode>
+   <m-file>LongTail_pdf_Advanced</m-file>
+   <filename>/Users/hiro/Documents/github/1A1_matlab_intermediate_course/LongTail_pdf_Advanced.m</filename>
+   <outputdir>/Users/hiro/Documents/github/1A1_matlab_intermediate_course/LongTail_pdf_Advanced</outputdir>
+</mscript>
