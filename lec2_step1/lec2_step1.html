@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>MATLAB programming course for beginners, supported by Wagatsuma Lab@Kyutech</title><meta name="generator" content="MATLAB 9.12"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2022-11-30"><meta name="DC.source" content="lec1_step7.m"><style type="text/css">
+      --><title>MATLAB programming course for beginners, supported by Wagatsuma Lab@Kyutech</title><meta name="generator" content="MATLAB 9.12"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2022-11-30"><meta name="DC.source" content="lec2_step1.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -67,33 +67,17 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><h1>MATLAB programming course for beginners, supported by Wagatsuma Lab@Kyutech</h1><!--introduction--><p>/* The MIT License (MIT): Copyright (c) 2022 Hiroaki Wagatsuma and Wagatsuma Lab@Kyutech</p><p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p><p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p><p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Specifications and requirements</a></li><li><a href="#2">Main program</a></li><li><a href="#3">Supplementary information to publish</a></li></ul></div><h2 id="1">Specifications and requirements</h2><div><ol><li>@Time    : 2022-8-10</li><li>@Author  : Hiroaki Wagatsuma</li><li>@Site    : <a href="https://github.com/hirowgit/1A1_matlab_intermediate_course">https://github.com/hirowgit/1A1_matlab_intermediate_course</a></li><li>@IDE     : MATLAB R2022a</li><li>@File    : lec1_step7.m</li></ol></div><h2 id="2">Main program</h2><pre class="codeinput"><span class="comment">% a generator of the natural number sequence randomly aligned</span>
+  </style></head><body><div class="content"><h1>MATLAB programming course for beginners, supported by Wagatsuma Lab@Kyutech</h1><!--introduction--><p>/* The MIT License (MIT): Copyright (c) 2022 Hiroaki Wagatsuma and Wagatsuma Lab@Kyutech</p><p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p><p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p><p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Specifications and requirements</a></li><li><a href="#2">Main program</a></li><li><a href="#3">Supplementary information to publish</a></li></ul></div><h2 id="1">Specifications and requirements</h2><div><ol><li>@Time    : 2022-8-10</li><li>@Author  : Hiroaki Wagatsuma</li><li>@Site    : <a href="https://github.com/hirowgit/1A1_matlab_intermediate_course">https://github.com/hirowgit/1A1_matlab_intermediate_course</a></li><li>@IDE     : MATLAB R2022a</li><li>@File    : lec2_step1.m</li></ol></div><h2 id="2">Main program</h2><pre class="codeinput"><span class="comment">% a generator of the natural number sequence randomly aligned</span>
 
 tic
-NofD=10;
-<span class="comment">% NofD=200;</span>
-<span class="comment">% NofD=300;</span>
+fdname={<span class="string">'allData200.mat'</span>,<span class="string">'allData500.mat'</span>,<span class="string">'allData1000.mat'</span>,<span class="string">'allData10000.mat'</span>};
+load(fdname{1});
 
-setN=NofD*1000;
-allData=[];
-<span class="keyword">for</span> k=1:setN
+allData=allData(1:20,:);
 
-    flag=true(1,NofD+1);
+NofD=size(allData,2);
+setN=size(allData,1);
 
-    DataLine=[];
-    tmp=floor(rand(1,1)*NofD)+1;
-
-    <span class="keyword">while</span> sum(flag(1:NofD))&gt;0
-        <span class="keyword">if</span> flag(tmp)
-            DataLine(end+1)=tmp;
-            flag(tmp)=false;
-        <span class="keyword">end</span>
-        tmp=floor(rand(1,1)*NofD)+1;
-    <span class="keyword">end</span>
-    allData(k,:)=DataLine;
-<span class="keyword">end</span>
-
-<span class="comment">% allData=allData*10;</span>
 
 allData_s=sort(allData);
 
@@ -137,7 +121,15 @@ set(gca,<span class="string">'xlim'</span>,[0.5 NofD+0.5],<span class="string">'
 grid <span class="string">on</span>;
 xticks(xp);
 xticklabels(str_xtk);
-</pre><img vspace="5" hspace="5" src="lec1_step7_01.png" alt=""> <img vspace="5" hspace="5" src="lec1_step7_02.png" alt=""> <img vspace="5" hspace="5" src="lec1_step7_03.png" alt=""> <h2 id="3">Supplementary information to publish</h2><p>If you want to make a pdf or html file on the code, you can use the code "x_publish_each_codes.m" in the same folder. Please change the file name as " this_file_tag='lec*_step*' " (* will be replaced to the number of the target file).</p><p>The code "x_publish_all_codes.m" works for such a publication applying to all codes in the same folder (Note: "x_publish_all_codes_sub.m" should be located in the same folder).</p><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2022a</a><br></p></div><!--
+</pre><pre class="codeoutput error">Error using cat
+Dimensions of arrays being concatenated are not consistent.
+
+Error in cell2mat (line 83)
+            m{n} = cat(1,c{:,n});
+
+Error in lec2_step1 (line 59)
+NofE_data_m=cell2mat(NofE_data);
+</pre><h2 id="3">Supplementary information to publish</h2><p>If you want to make a pdf or html file on the code, you can use the code "x_publish_each_codes.m" in the same folder. Please change the file name as " this_file_tag='lec*_step*' " (* will be replaced to the number of the target file).</p><p>The code "x_publish_all_codes.m" works for such a publication applying to all codes in the same folder (Note: "x_publish_all_codes_sub.m" should be located in the same folder).</p><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2022a</a><br></p></div><!--
 ##### SOURCE BEGIN #####
 %% MATLAB programming course for beginners, supported by Wagatsuma Lab@Kyutech 
 %
@@ -168,37 +160,21 @@ xticklabels(str_xtk);
 % # @Author  : Hiroaki Wagatsuma
 % # @Site    : https://github.com/hirowgit/1A1_matlab_intermediate_course
 % # @IDE     : MATLAB R2022a
-% # @File    : lec1_step7.m 
+% # @File    : lec2_step1.m 
 
 %%  Main program
 
 % a generator of the natural number sequence randomly aligned
 
 tic
-NofD=10;
-% NofD=200;
-% NofD=300;
+fdname={'allData200.mat','allData500.mat','allData1000.mat','allData10000.mat'};
+load(fdname{1});
 
-setN=NofD*1000;
-allData=[];
-for k=1:setN
-    
-    flag=true(1,NofD+1);
-    
-    DataLine=[];
-    tmp=floor(rand(1,1)*NofD)+1;
-    
-    while sum(flag(1:NofD))>0
-        if flag(tmp)
-            DataLine(end+1)=tmp;
-            flag(tmp)=false;
-        end
-        tmp=floor(rand(1,1)*NofD)+1;
-    end
-    allData(k,:)=DataLine;
-end
+allData=allData(1:20,:);
 
-% allData=allData*10;
+NofD=size(allData,2);
+setN=size(allData,1);
+
 
 allData_s=sort(allData);
 

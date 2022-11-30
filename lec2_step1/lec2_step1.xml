@@ -24,7 +24,7 @@
             <li>@Site    : <a href="https://github.com/hirowgit/1A1_matlab_intermediate_course">https://github.com/hirowgit/1A1_matlab_intermediate_course</a>
             </li>
             <li>@IDE     : MATLAB R2022a</li>
-            <li>@File    : lec1_step7.m</li>
+            <li>@File    : lec2_step1.m</li>
          </ol>
       </text>
       <cellOutputTarget>2</cellOutputTarget>
@@ -35,30 +35,14 @@
       <mcode>% a generator of the natural number sequence randomly aligned
 
 tic
-NofD=10;
-% NofD=200;
-% NofD=300;
+fdname={'allData200.mat','allData500.mat','allData1000.mat','allData10000.mat'};
+load(fdname{1});
 
-setN=NofD*1000;
-allData=[];
-for k=1:setN
+allData=allData(1:20,:);
 
-    flag=true(1,NofD+1);
+NofD=size(allData,2);
+setN=size(allData,1);
 
-    DataLine=[];
-    tmp=floor(rand(1,1)*NofD)+1;
-
-    while sum(flag(1:NofD))&gt;0
-        if flag(tmp)
-            DataLine(end+1)=tmp;
-            flag(tmp)=false;
-        end
-        tmp=floor(rand(1,1)*NofD)+1;
-    end
-    allData(k,:)=DataLine;
-end
-
-% allData=allData*10;
 
 allData_s=sort(allData);
 
@@ -106,30 +90,14 @@ xticklabels(str_xtk);</mcode>
          <mwsh:code xml:space="preserve"><mwsh:comments xml:space="preserve">% a generator of the natural number sequence randomly aligned</mwsh:comments>
 
 tic
-NofD=10;
-<mwsh:comments xml:space="preserve">% NofD=200;</mwsh:comments>
-<mwsh:comments xml:space="preserve">% NofD=300;</mwsh:comments>
+fdname={<mwsh:strings xml:space="preserve">'allData200.mat'</mwsh:strings>,<mwsh:strings xml:space="preserve">'allData500.mat'</mwsh:strings>,<mwsh:strings xml:space="preserve">'allData1000.mat'</mwsh:strings>,<mwsh:strings xml:space="preserve">'allData10000.mat'</mwsh:strings>};
+load(fdname{1});
 
-setN=NofD*1000;
-allData=[];
-<mwsh:keywords xml:space="preserve">for</mwsh:keywords> k=1:setN
+allData=allData(1:20,:);
 
-    flag=true(1,NofD+1);
+NofD=size(allData,2);
+setN=size(allData,1);
 
-    DataLine=[];
-    tmp=floor(rand(1,1)*NofD)+1;
-
-    <mwsh:keywords xml:space="preserve">while</mwsh:keywords> sum(flag(1:NofD))&gt;0
-        <mwsh:keywords xml:space="preserve">if</mwsh:keywords> flag(tmp)
-            DataLine(end+1)=tmp;
-            flag(tmp)=false;
-        <mwsh:keywords xml:space="preserve">end</mwsh:keywords>
-        tmp=floor(rand(1,1)*NofD)+1;
-    <mwsh:keywords xml:space="preserve">end</mwsh:keywords>
-    allData(k,:)=DataLine;
-<mwsh:keywords xml:space="preserve">end</mwsh:keywords>
-
-<mwsh:comments xml:space="preserve">% allData=allData*10;</mwsh:comments>
 
 allData_s=sort(allData);
 
@@ -176,9 +144,15 @@ xticklabels(str_xtk);</mwsh:code>
       </mcode-xmlized>
       <mcode-count>1</mcode-count>
       <cellOutputTarget>3</cellOutputTarget>
-      <img src="lec1_step7_01.png"/>
-      <img src="lec1_step7_02.png"/>
-      <img src="lec1_step7_03.png"/>
+      <mcodeoutput class="codeoutput error">Error using cat
+Dimensions of arrays being concatenated are not consistent.
+
+Error in cell2mat (line 83)
+            m{n} = cat(1,c{:,n});
+
+Error in lec2_step1 (line 59)
+NofE_data_m=cell2mat(NofE_data);
+</mcodeoutput>
    </cell>
    <cell>
       <count>4</count>
@@ -222,37 +196,21 @@ xticklabels(str_xtk);</mwsh:code>
 % # @Author  : Hiroaki Wagatsuma
 % # @Site    : https://github.com/hirowgit/1A1_matlab_intermediate_course
 % # @IDE     : MATLAB R2022a
-% # @File    : lec1_step7.m 
+% # @File    : lec2_step1.m 
 
 %%  Main program
 
 % a generator of the natural number sequence randomly aligned
 
 tic
-NofD=10;
-% NofD=200;
-% NofD=300;
+fdname={'allData200.mat','allData500.mat','allData1000.mat','allData10000.mat'};
+load(fdname{1});
 
-setN=NofD*1000;
-allData=[];
-for k=1:setN
-    
-    flag=true(1,NofD+1);
-    
-    DataLine=[];
-    tmp=floor(rand(1,1)*NofD)+1;
-    
-    while sum(flag(1:NofD))&gt;0
-        if flag(tmp)
-            DataLine(end+1)=tmp;
-            flag(tmp)=false;
-        end
-        tmp=floor(rand(1,1)*NofD)+1;
-    end
-    allData(k,:)=DataLine;
-end
+allData=allData(1:20,:);
 
-% allData=allData*10;
+NofD=size(allData,2);
+setN=size(allData,1);
+
 
 allData_s=sort(allData);
 
@@ -308,7 +266,7 @@ xticklabels(str_xtk);
 % codes in the same folder (Note: "x_publish_all_codes_sub.m" should be located in the same folder).
 %%
 </originalCode>
-   <m-file>lec1_step7</m-file>
-   <filename>/Users/hiro/Documents/github/1A1_matlab_intermediate_course/lec1_step7.m</filename>
-   <outputdir>/Users/hiro/Documents/github/1A1_matlab_intermediate_course/lec1_step7</outputdir>
+   <m-file>lec2_step1</m-file>
+   <filename>/Users/hiro/Documents/github/1A1_matlab_intermediate_course/lec2_step1.m</filename>
+   <outputdir>/Users/hiro/Documents/github/1A1_matlab_intermediate_course/lec2_step1</outputdir>
 </mscript>

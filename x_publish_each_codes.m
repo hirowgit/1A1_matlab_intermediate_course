@@ -1,4 +1,4 @@
-this_file_tag='lec1_step1';
+this_file_tag='lec3_step1';
 
 %% MATLAB programming course for beginners, supported by Wagatsuma Lab@Kyutech 
 %

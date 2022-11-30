@@ -1,0 +1,191 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>MATLAB programming course for beginners, supported by Wagatsuma Lab@Kyutech</title><meta name="generator" content="MATLAB 9.12"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2022-11-30"><meta name="DC.source" content="lec1_step4b.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>MATLAB programming course for beginners, supported by Wagatsuma Lab@Kyutech</h1><!--introduction--><p>/* The MIT License (MIT): Copyright (c) 2022 Hiroaki Wagatsuma and Wagatsuma Lab@Kyutech</p><p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p><p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p><p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Specifications and requirements</a></li><li><a href="#2">Main program</a></li><li><a href="#3">Supplementary information to publish</a></li></ul></div><h2 id="1">Specifications and requirements</h2><div><ol><li>@Time    : 2022-8-10</li><li>@Author  : Hiroaki Wagatsuma</li><li>@Site    : <a href="https://github.com/hirowgit/1A1_matlab_intermediate_course">https://github.com/hirowgit/1A1_matlab_intermediate_course</a></li><li>@IDE     : MATLAB R2022a</li><li>@File    : lec1_step4b.m</li></ol></div><h2 id="2">Main program</h2><pre class="codeinput"><span class="comment">% a generator of the natural number sequence randomly aligned</span>
+
+tic
+NofD=10;
+flag=true(1,NofD+1);
+
+DataLine=[];
+tmp=floor(rand(1,1)*NofD)+1;
+
+<span class="keyword">while</span> sum(flag(1:10))&gt;0
+    <span class="keyword">if</span> flag(tmp)
+        DataLine(end+1)=tmp;
+        flag(tmp)=false;
+    <span class="keyword">end</span>
+    tmp=floor(rand(1,1)*NofD)+1;
+<span class="keyword">end</span>
+
+<span class="comment">% DataLineComp=unique(DataLine);</span>
+<span class="comment">%</span>
+<span class="comment">% compD1=[(1:NofD)'  DataLineComp'];</span>
+<span class="comment">% compD2=sum(abs(diff(compD1')));</span>
+<span class="comment">% Tdat=table((1:NofD)',DataLineComp','VariableNames',{'id','sorted_data'});</span>
+<span class="comment">% disp(Tdat);</span>
+<span class="comment">%</span>
+<span class="comment">% if compD2&gt;0</span>
+<span class="comment">%     disp('It was wrong calculation... ');</span>
+<span class="comment">% else</span>
+<span class="comment">%     disp('The mission was sucessfully completed!');</span>
+<span class="comment">% end</span>
+
+toc
+
+save(<span class="string">'DataLine.mat'</span>,<span class="string">'DataLine'</span>);
+
+<span class="comment">% load('DataLine.mat');</span>
+</pre><pre class="codeoutput">Elapsed time is 0.010060 seconds.
+</pre><h2 id="3">Supplementary information to publish</h2><p>If you want to make a pdf or html file on the code, you can use the code "x_publish_each_codes.m" in the same folder. Please change the file name as " this_file_tag='lec*_step*' " (* will be replaced to the number of the target file).</p><p>The code "x_publish_all_codes.m" works for such a publication applying to all codes in the same folder (Note: "x_publish_all_codes_sub.m" should be located in the same folder).</p><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2022a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% MATLAB programming course for beginners, supported by Wagatsuma Lab@Kyutech 
+%
+% /* 
+% The MIT License (MIT): 
+% Copyright (c) 2022 Hiroaki Wagatsuma and Wagatsuma Lab@Kyutech
+% 
+% Permission is hereby granted, free of charge, to any person obtaining a
+% copy of this software and associated documentation files (the
+% "Software"), to deal in the Software without restriction, including
+% without limitation the rights to use, copy, modify, merge, publish,
+% distribute, sublicense, and/or sell copies of the Software, and to permit
+% persons to whom the Software is furnished to do so, subject to the
+% following conditions:
+% 
+% The above copyright notice and this permission notice shall be included
+% in all copies or substantial portions of the Software.
+% 
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+% OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+% MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+% NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+% DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+% OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+% USE OR OTHER DEALINGS IN THE SOFTWARE. */
+%% Specifications and requirements
+% # @Time    : 2022-8-10 
+% # @Author  : Hiroaki Wagatsuma
+% # @Site    : https://github.com/hirowgit/1A1_matlab_intermediate_course
+% # @IDE     : MATLAB R2022a
+% # @File    : lec1_step4b.m 
+
+%%  Main program
+
+% a generator of the natural number sequence randomly aligned
+
+tic
+NofD=10;
+flag=true(1,NofD+1);
+
+DataLine=[];
+tmp=floor(rand(1,1)*NofD)+1;
+
+while sum(flag(1:10))>0
+    if flag(tmp)
+        DataLine(end+1)=tmp;
+        flag(tmp)=false;
+    end
+    tmp=floor(rand(1,1)*NofD)+1;
+end
+
+% DataLineComp=unique(DataLine);
+% 
+% compD1=[(1:NofD)'  DataLineComp'];
+% compD2=sum(abs(diff(compD1')));
+% Tdat=table((1:NofD)',DataLineComp','VariableNames',{'id','sorted_data'});
+% disp(Tdat);
+% 
+% if compD2>0
+%     disp('It was wrong calculation... ');
+% else
+%     disp('The mission was sucessfully completed!');
+% end
+
+toc
+
+save('DataLine.mat','DataLine');
+
+% load('DataLine.mat');
+
+
+
+%% Supplementary information to publish
+%
+% If you want to make a pdf or html file on the code, 
+% you can use the code "x_publish_each_codes.m" in the same folder. 
+% Please change the file name as " this_file_tag='lec*_step*' "  
+% (* will be replaced to the number of the target file). 
+%
+% The code "x_publish_all_codes.m" works for such a publication applying to all
+% codes in the same folder (Note: "x_publish_all_codes_sub.m" should be located in the same folder).
+%%
+
+##### SOURCE END #####
+--></body></html>
